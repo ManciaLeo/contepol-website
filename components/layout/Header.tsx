@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image"; // <-- Importamos o componente de Imagem
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, MessageCircle } from "lucide-react"; // <-- Adicionamos o ícone de chat
 import { useTheme } from "next-themes";
 
 export const Header = () => {
@@ -26,8 +26,13 @@ export const Header = () => {
     { name: "Início", href: "/" },
     { name: "Produtos", href: "/#produtos" },
     { name: "Empresa", href: "/#empresa" },
-    { name: "Contato", href: "/contato" }, // <-- Agora aponta para a página nova!
+    { name: "Contato", href: "/contato" },
   ];
+
+  // 👇 COLOQUE O NÚMERO DA CONTEPOL AQUI (Apenas números, com DDD)
+  const numeroWhatsApp = "5511999999999"; 
+  const mensagemWhatsApp = "Olá! Acessei o site da Contepol e gostaria de solicitar um orçamento.";
+  const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagemWhatsApp)}`;
 
   return (
     <header
@@ -40,27 +45,24 @@ export const Header = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           
-          {/* LOGO OFICIAL EM SVG */}
           <Link href="/" className="flex items-center">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              // No modo escuro, adicionamos um fundo branco suave caso a letra da logo seja preta
               className="dark:bg-white/90 dark:p-1.5 dark:rounded-xl transition-all"
             >
               <Image 
                 src="/logo_contepol_.svg" 
                 alt="Contepol Logo Oficial" 
-                width={160} // Largura da logo (ajuste se precisar)
-                height={50} // Altura da logo
-                priority // Carrega a logo instantaneamente
-                className="w-auto h-10 md:h-12" // Fica com 40px no celular e 48px no PC
+                width={160}
+                height={50}
+                priority
+                className="w-auto h-10 md:h-12"
               />
             </motion.div>
           </Link>
 
-          {/* Navegação Desktop */}
           <nav className="hidden md:flex items-center space-x-8">
             {navLinks.map((link, index) => (
               <motion.div
@@ -78,7 +80,6 @@ export const Header = () => {
               </motion.div>
             ))}
 
-            {/* Botão Mágico de Alternar Tema */}
             {mounted && (
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -93,7 +94,6 @@ export const Header = () => {
             )}
           </nav>
 
-          {/* Botões de Ação Mobile/Desktop */}
           <div className="flex items-center gap-4">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -101,15 +101,18 @@ export const Header = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="hidden md:block"
             >
-              <Link
-                href="#orcamento"
-                className="px-5 py-2.5 text-sm font-medium text-white bg-[#F15A24] rounded-full hover:bg-orange-600 transition-all duration-300 shadow-sm"
+              {/* BOTÃO WHATSAPP DESKTOP VERDE */}
+              <a
+                href={linkWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#25D366] rounded-full hover:bg-[#128C7E] transition-all duration-300 shadow-sm hover:shadow-md transform hover:scale-105"
               >
+                <MessageCircle className="w-4 h-4" />
                 Solicitar Orçamento
-              </Link>
+              </a>
             </motion.div>
 
-            {/* Botão de Tema Mobile */}
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -119,7 +122,6 @@ export const Header = () => {
               </button>
             )}
 
-            {/* Menu Hamburger Mobile */}
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -132,7 +134,6 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Menu Mobile Dropdown */}
       {isMobileMenuOpen && (
         <motion.div 
           initial={{ opacity: 0, height: 0 }}
@@ -150,13 +151,18 @@ export const Header = () => {
                 {link.name}
               </Link>
             ))}
-            <Link
-                href="#orcamento"
+            
+            {/* BOTÃO WHATSAPP MOBILE VERDE */}
+            <a
+                href={linkWhatsApp}
+                target="_blank"
+                rel="noopener noreferrer"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block text-center px-3 py-3 mt-4 text-base font-medium text-white bg-[#F15A24] rounded-xl hover:bg-orange-600 transition-colors"
+                className="flex items-center justify-center gap-2 w-full px-3 py-3 mt-4 text-base font-medium text-white bg-[#25D366] rounded-xl hover:bg-[#128C7E] transition-colors"
               >
+                <MessageCircle className="w-5 h-5" />
                 Solicitar Orçamento
-              </Link>
+            </a>
           </div>
         </motion.div>
       )}
