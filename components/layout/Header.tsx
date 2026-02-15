@@ -24,9 +24,9 @@ export const Header = () => {
 
   const navLinks = [
     { name: "Início", href: "/" },
-    { name: "Produtos", href: "#produtos" },
-    { name: "Empresa", href: "#empresa" },
-    { name: "Contato", href: "#contato" },
+    { name: "Produtos", href: "/#produtos" },
+    { name: "Empresa", href: "/#empresa" },
+    { name: "Contato", href: "/contato" }, // <-- Agora aponta para a página nova!
   ];
 
   return (

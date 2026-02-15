@@ -175,41 +175,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO DE CONTATO */}
-      <section id="contato" className="w-full max-w-4xl px-6 py-24 z-10 flex flex-col gap-12 mx-auto">
+      {/* SEÇÃO CTA (Call to Action) FINAL */}
+      <section className="w-full max-w-4xl px-6 py-24 z-10 flex flex-col items-center text-center mx-auto mt-12">
         <Reveal>
-          <div className="text-center">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Fale com um Especialista</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg">Solicite um orçamento ou tire dúvidas diretamente com nossa engenharia.</p>
-          </div>
-        </Reveal>
-
-        <Reveal delay={0.2}>
-          <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-8 md:p-12 rounded-3xl shadow-lg dark:shadow-none w-full transition-colors duration-300">
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Nome</label>
-                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="Seu nome" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Empresa</label>
-                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="Sua indústria" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">E-mail Corporativo</label>
-                <input type="email" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="contato@empresa.com.br" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Mensagem / Demanda</label>
-                <textarea rows={5} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all resize-none" placeholder="Descreva sua necessidade técnica..."></textarea>
-              </div>
-              
-              <button type="button" className="w-full mt-8 py-4 bg-[#F15A24] text-white font-bold text-lg rounded-2xl hover:bg-orange-600 transition-all duration-300 shadow-md">
-                Enviar Solicitação
-              </button>
-            </form>
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-10 md:p-16 rounded-[3rem] shadow-xl dark:shadow-none transition-colors duration-300">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
+              Pronto para otimizar a sua indústria?
+            </h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
+              Fale com nossa equipe de engenharia e descubra como o poliuretano de alta performance pode reduzir as paradas de manutenção da sua planta.
+            </p>
+            <a 
+              href="/contato" 
+              className="inline-block px-10 py-4 bg-[#F15A24] text-white font-bold text-lg rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+              Falar com um Especialista
+            </a>
           </div>
         </Reveal>
       </section>
