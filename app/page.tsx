@@ -43,12 +43,11 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 overflow-x-hidden font-sans transition-colors duration-300">
       
-      {/* HERO SECTION COM FOTO DE FUNDO (fundo-hero.png) E PARALLAX */}
+      {/* HERO SECTION */}
       <section 
         className="w-full min-h-screen flex flex-col items-center justify-center relative px-6 py-20 bg-cover bg-center bg-no-repeat bg-fixed border-b border-slate-200 dark:border-slate-800 transition-colors duration-300"
         style={{ backgroundImage: "url('/fundo-hero.png')" }}
       >
-        {/* Overlay Inteligente: Película que garante a leitura perfeita do texto nos dois modos */}
         <div className="absolute inset-0 z-0 bg-white/85 dark:bg-slate-950/85 backdrop-blur-[2px] transition-colors duration-300" />
 
         <div className="z-10 text-center max-w-4xl space-y-6 mt-10">
@@ -103,8 +102,53 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NOVA SEÇÃO: QUEM SOMOS / A EMPRESA */}
+      <section id="empresa" className="w-full max-w-7xl px-6 py-24 z-10 border-b border-slate-200 dark:border-slate-800">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <Reveal>
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">
+                A engenharia por trás da <span className="text-[#F15A24]">excelência</span>.
+              </h2>
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                Com experiência sólida no desenvolvimento de soluções em poliuretano, a Contepol se consolidou como parceira estratégica das indústrias, minerações e construtoras do país. Nosso foco é resolver problemas complexos de desgaste, abrasão e impacto.
+              </p>
+              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                Mais do que fabricar peças, nós entregamos confiabilidade operacional. Nossa planta fabril conta com tecnologia para engenharia reversa e formulações customizadas que garantem a durabilidade extrema que o seu maquinário exige.
+              </p>
+              
+              {/* Números de Prova Social */}
+              <div className="pt-6 flex flex-wrap gap-8">
+                <div>
+                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">+10</h4>
+                  <p className="text-sm text-slate-500 font-medium mt-1">Anos de Mercado</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">+500</h4>
+                  <p className="text-sm text-slate-500 font-medium mt-1">Projetos Entregues</p>
+                </div>
+                <div>
+                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">100%</h4>
+                  <p className="text-sm text-slate-500 font-medium mt-1">Nacional</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Espaço reservado para a Foto */}
+          <Reveal delay={0.2}>
+            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
+              <div className="absolute inset-0 bg-slate-100 dark:bg-slate-900 animate-pulse flex flex-col items-center justify-center text-center p-6">
+                <Factory className="w-12 h-12 text-slate-300 dark:text-slate-700 mb-4" />
+                <span className="text-slate-500 dark:text-slate-400 font-medium">Espaço reservado para foto da fábrica/equipe</span>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* SEÇÃO BENTO GRID */}
-      <section id="produtos" className="w-full max-w-6xl px-6 py-24 z-10">
+      <section id="produtos" className="w-full max-w-6xl px-6 py-24 z-10 border-b border-slate-200 dark:border-slate-800">
         <Reveal>
           <div className="mb-12 text-center md:text-left">
             <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Nosso Mostruário</h2>
