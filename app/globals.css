@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+/* 1. Ativa a troca de tema manual pelo nosso botão */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* 2. Força o navegador a reconhecer as cores padrão do sistema */
+:root {
+  color-scheme: light;
+}
+
+.dark {
+  color-scheme: dark;
+}

@@ -1,0 +1,175 @@
+"use client";
+
+import { Reveal } from "@/components/animations/Reveal";
+import { Wrench, Shield, Pickaxe, Settings, Factory, Building2, Tractor, Truck, Cpu } from "lucide-react";
+import { motion } from "framer-motion";
+
+export default function Home() {
+  const produtos = [
+    {
+      titulo: "Peças Técnicas",
+      descricao: "Usinagem e moldagem de precisão para reposição industrial.",
+      icone: <Wrench className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
+      colSpan: "md:col-span-2",
+    },
+    {
+      titulo: "Revestimentos em PU",
+      descricao: "Proteção contra abrasão e impacto para rolos e cilindros.",
+      icone: <Shield className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
+      colSpan: "md:col-span-1",
+    },
+    {
+      titulo: "Mineração e Siderurgia",
+      descricao: "Peneiras, raspadores e hidrociclones de alta durabilidade.",
+      icone: <Pickaxe className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
+      colSpan: "md:col-span-1",
+    },
+    {
+      titulo: "Projetos Customizados",
+      descricao: "Engenharia reversa e desenvolvimento sob medida para sua planta.",
+      icone: <Settings className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
+      colSpan: "md:col-span-2",
+    },
+  ];
+
+  const parceiros = [
+    { nome: "Siderurgia Nacional", icone: <Factory className="w-8 h-8" /> },
+    { nome: "Construtora Alpha", icone: <Building2 className="w-8 h-8" /> },
+    { nome: "AgroTech Brasil", icone: <Tractor className="w-8 h-8" /> },
+    { nome: "Logística Express", icone: <Truck className="w-8 h-8" /> },
+    { nome: "Indústria Tech", icone: <Cpu className="w-8 h-8" /> },
+  ];
+
+  return (
+    <main className="flex min-h-screen flex-col items-center bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 overflow-x-hidden font-sans transition-colors duration-300">
+      
+      {/* HERO SECTION COM FOTO DE FUNDO (fundo-hero.png) E PARALLAX */}
+      <section 
+        className="w-full min-h-screen flex flex-col items-center justify-center relative px-6 py-20 bg-cover bg-center bg-no-repeat bg-fixed border-b border-slate-200 dark:border-slate-800 transition-colors duration-300"
+        style={{ backgroundImage: "url('/fundo-hero.png')" }}
+      >
+        {/* Overlay Inteligente: Película que garante a leitura perfeita do texto nos dois modos */}
+        <div className="absolute inset-0 z-0 bg-white/85 dark:bg-slate-950/85 backdrop-blur-[2px] transition-colors duration-300" />
+
+        <div className="z-10 text-center max-w-4xl space-y-6 mt-10">
+          <Reveal>
+            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+              Tecnologia em <span className="text-red-700 dark:text-red-600">Poliuretano</span>.
+            </h1>
+          </Reveal>
+
+          <Reveal delay={0.2}>
+            <p className="text-xl text-slate-600 dark:text-slate-400 md:text-2xl font-light">
+              Soluções industriais de alta performance e durabilidade.
+              Do projeto à peça técnica.
+            </p>
+          </Reveal>
+
+          <Reveal delay={0.4}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+              <a href="#produtos" className="px-8 py-3 bg-[#F15A24] hover:bg-orange-600 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 text-center shadow-md">
+                Ver Catálogo
+              </a>
+              <a href="#contato" className="px-8 py-3 border border-slate-300 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-500 text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 rounded-full transition-all duration-300 text-center bg-white dark:bg-slate-900/50 shadow-sm">
+                Fale Conosco
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* SEÇÃO LETREIRO - EMPRESAS PARCEIRAS */}
+      <section className="w-full py-12 bg-white dark:bg-slate-900/30 border-b border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col items-center justify-center z-10 transition-colors duration-300">
+        <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8 text-center">
+          Engenharia de confiança aprovada por grandes indústrias
+        </p>
+        
+        <div className="relative w-full max-w-7xl overflow-hidden flex items-center">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
+          
+          <motion.div
+            className="flex gap-16 md:gap-24 items-center w-max pl-16 md:pl-24"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+          >
+            {[...parceiros, ...parceiros].map((parceiro, index) => (
+              <div key={index} className="flex items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors grayscale hover:grayscale-0 cursor-default opacity-70 hover:opacity-100">
+                {parceiro.icone}
+                <span className="text-xl font-bold font-sans tracking-tight">{parceiro.nome}</span>
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* SEÇÃO BENTO GRID */}
+      <section id="produtos" className="w-full max-w-6xl px-6 py-24 z-10">
+        <Reveal>
+          <div className="mb-12 text-center md:text-left">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Nosso Mostruário</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg">Versatilidade que atende às exigências mais extremas.</p>
+          </div>
+        </Reveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {produtos.map((item, index) => (
+            <div key={index} className={item.colSpan}>
+              <Reveal delay={0.2 + (index * 0.1)}>
+                <div className="h-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-teal-500/50 transition-all duration-300 p-8 rounded-3xl flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md dark:shadow-none">
+                  <div className="mb-6 bg-teal-50 dark:bg-teal-900/30 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
+                    {item.icone}
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">{item.titulo}</h3>
+                    <p className="text-slate-600 dark:text-slate-400">{item.descricao}</p>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SEÇÃO DE CONTATO */}
+      <section id="contato" className="w-full max-w-4xl px-6 py-24 z-10 flex flex-col gap-12 mx-auto">
+        <Reveal>
+          <div className="text-center">
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Fale com um Especialista</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-lg">Solicite um orçamento ou tire dúvidas diretamente com nossa engenharia.</p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.2}>
+          <div className="bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 p-8 md:p-12 rounded-3xl shadow-lg dark:shadow-none w-full transition-colors duration-300">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Nome</label>
+                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="Seu nome" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Empresa</label>
+                  <input type="text" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="Sua indústria" />
+                </div>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">E-mail Corporativo</label>
+                <input type="email" className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all" placeholder="contato@empresa.com.br" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-700 dark:text-slate-300">Mensagem / Demanda</label>
+                <textarea rows={5} className="w-full bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-2xl px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-[#F15A24] focus:ring-1 focus:ring-[#F15A24] transition-all resize-none" placeholder="Descreva sua necessidade técnica..."></textarea>
+              </div>
+              
+              <button type="button" className="w-full mt-8 py-4 bg-[#F15A24] text-white font-bold text-lg rounded-2xl hover:bg-orange-600 transition-all duration-300 shadow-md">
+                Enviar Solicitação
+              </button>
+            </form>
+          </div>
+        </Reveal>
+      </section>
+
+    </main>
+  );
+}
