@@ -175,22 +175,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO CTA (Call to Action) FINAL */}
-      <section className="w-full max-w-4xl px-6 py-24 z-10 flex flex-col items-center text-center mx-auto mt-12">
+     {/* SEÇÃO NEWSLETTER TÉCNICA */}
+      <section className="w-full max-w-5xl px-6 py-24 z-10 mx-auto">
         <Reveal>
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-10 md:p-16 rounded-[3rem] shadow-xl dark:shadow-none transition-colors duration-300">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6">
-              Pronto para otimizar a sua indústria?
-            </h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 max-w-2xl mx-auto">
-              Fale com nossa equipe de engenharia e descubra como o poliuretano de alta performance pode reduzir as paradas de manutenção da sua planta.
-            </p>
-            <a 
-              href="/contato" 
-              className="inline-block px-10 py-4 bg-[#F15A24] text-white font-bold text-lg rounded-full hover:bg-orange-600 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-              Falar com um Especialista
-            </a>
+          <div className="bg-slate-900 dark:bg-slate-900/50 border border-slate-800 p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+            {/* Detalhe visual de fundo */}
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F15A24]/10 rounded-full blur-3xl -mr-32 -mt-32 transition-all group-hover:bg-[#F15A24]/20" />
+            
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
+                  Mantenha sua planta <br />
+                  <span className="text-[#F15A24]">sempre atualizada</span>.
+                </h2>
+                <p className="text-slate-400 text-lg">
+                  Assine nossa newsletter técnica e receba em seu e-mail conteúdos exclusivos sobre manutenção preditiva e inovações em elastômeros.
+                </p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <form className="flex flex-col sm:flex-row gap-3">
+                  <input 
+                    type="email" 
+                    placeholder="Seu melhor e-mail" 
+                    className="flex-1 bg-slate-800 border border-slate-700 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#F15A24] transition-all"
+                  />
+                  <button 
+                    type="button"
+                    className="px-8 py-4 bg-[#F15A24] text-white font-bold rounded-2xl hover:bg-orange-600 transition-all shadow-lg whitespace-nowrap"
+                  >
+                    Inscrever-se
+                  </button>
+                </form>
+                <p className="text-xs text-slate-500 ml-2">
+                  Prometemos não enviar spam. Apenas conhecimento técnico.
+                </p>
+              </div>
+            </div>
           </div>
         </Reveal>
       </section>
