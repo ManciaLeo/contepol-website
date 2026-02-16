@@ -63,7 +63,7 @@ export default function Contato() {
                 <div className="w-20 h-20 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6">
                   <MapPin className="w-10 h-10 text-[#F15A24] animate-bounce" />
                 </div>
-                <h4 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Fábrica São Luís</h4>
+                <h4 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Contepol - Construções, Indústria e Pré-Moldados</h4>
                 <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-[320px]">
                   Rua Doze, nº 02, Mod 01, Distrito Industrial<br/>
                   São Luís - MA | CEP: 65090-260
@@ -75,7 +75,7 @@ export default function Contato() {
                   rel="noopener noreferrer"
                   className="bg-[#F15A24] text-white px-10 py-4 rounded-2xl font-bold shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 flex items-center gap-2"
                 >
-                  <MapPin className="w-5 h-5" /> Ver Localização Exata
+                  <MapPin className="w-5 h-5" /> Ver Localização
                 </a>
               </div>
             </Reveal>
