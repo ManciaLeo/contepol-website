@@ -62,19 +62,30 @@ export default function Contato() {
                 </div>
               </div>
 
-              {/* MAPA REAL DA CONTEPOL - LOCALIZAÇÃO EXATA */}
-<div className="w-full h-80 bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm relative group">
-  <iframe
-   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d305.20981250621253!2d-44.263751288936994!3d-2.6453411811835297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f6833cc1ce08b1%3A0x216448b0b5552321!2sContepol%20-%20Constru%C3%A7%C3%B5es%2C%20Ind%C3%BAstria%20e%20Pr%C3%A9-moldados%20LTDA!5e1!3m2!1spt-BR!2sbr!4v1771276816365!5m2!1spt-BR!2sbr"
-    width="100%"
-    height="100%"
-    style={{ border: 0 }}
-    allowFullScreen={true}
-    loading="lazy"
-    referrerPolicy="no-referrer-when-downgrade"
-    className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
-  ></iframe>
-</div>
+              {/* CARD DE LOCALIZAÇÃO INTERATIVO */}
+          <div className="relative w-full h-80 rounded-3xl overflow-hidden group border border-slate-200 dark:border-slate-800">
+            {/* Imagem Estática do Mapa (Placeholder Elegante) */}
+            <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 flex flex-col items-center justify-center p-6 text-center">
+              <MapPin className="w-12 h-12 text-[#F15A24] mb-4 animate-bounce" />
+              <h4 className="text-xl font-bold mb-2">Unidade Industrial Contepol</h4>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6">
+                Vila Metalúrgica, Santo André - SP
+              </p>
+              
+              {/* Botão que abre o Google Maps Real em outra aba */}
+              <a 
+                href="https://www.google.com.br/maps/search/Contepol+Tecnologia+em+Poliuretano" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="bg-[#F15A24] text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-orange-600 transition-all transform group-hover:scale-105"
+              >
+                Ver no Google Maps
+              </a>
+            </div>
+
+            {/* Overlay de gradiente para dar estilo */}
+            <div className="absolute inset-0 pointer-events-none border-4 border-white dark:border-slate-900 rounded-3xl opacity-20"></div>
+          </div>
           </Reveal>
 
           {/* LADO DIREITO: FORMULÁRIO */}
