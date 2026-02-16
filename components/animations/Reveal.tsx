@@ -6,7 +6,7 @@ interface Props {
   children: React.ReactNode;
   width?: "fit-content" | "100%";
   delay?: number;
-  className?: string; // <--- Isso aqui resolve o seu erro!
+  className?: string; // <--- ESTA LINHA É A QUE ESTÁ FALTANDO NO SEU!
 }
 
 export const Reveal = ({ children, width = "100%", delay = 0.2, className }: Props) => {
@@ -17,7 +17,7 @@ export const Reveal = ({ children, width = "100%", delay = 0.2, className }: Pro
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
       style={{ width }}
-      className={className} // <--- E aqui ele aplica a classe no HTML
+      className={className} // <--- E ESTA AQUI TAMBÉM!
     >
       {children}
     </motion.div>
