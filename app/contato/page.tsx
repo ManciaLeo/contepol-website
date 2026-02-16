@@ -65,7 +65,7 @@ export default function Contato() {
               {/* MAPA REAL DA CONTEPOL - LOCALIZAÇÃO EXATA */}
 <div className="w-full h-80 bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm relative group">
   <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.551064871032!2d-46.5414816!3d-23.6563063!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce42d992923707%3A0x6b49e6f80998394!2sContepol%20Tecnologia%20em%20Poliuretano!5e0!3m2!1spt-BR!2sbr!4v1710000000000!5m2!1spt-BR!2sbr"
+   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d305.20981250621253!2d-44.263751288936994!3d-2.6453411811835297!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f6833cc1ce08b1%3A0x216448b0b5552321!2sContepol%20-%20Constru%C3%A7%C3%B5es%2C%20Ind%C3%BAstria%20e%20Pr%C3%A9-moldados%20LTDA!5e1!3m2!1spt-BR!2sbr!4v1771276816365!5m2!1spt-BR!2sbr"
     width="100%"
     height="100%"
     style={{ border: 0 }}
