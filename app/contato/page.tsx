@@ -38,6 +38,7 @@ export default function Contato() {
                       <p>(11) 99999-9999</p>
                     </div>
                   </div>
+            </div>
                   
                   <div className="flex items-center gap-4">
                     <div className="bg-teal-50 dark:bg-teal-900/30 p-3 rounded-full text-teal-600">
@@ -62,19 +63,18 @@ export default function Contato() {
               </div>
 
               {/* MAPA REAL DA CONTEPOL */}
-              <div className="w-full h-80 bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm relative group">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.685324225!2d-46.5414566!3d-23.6514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDM5JzA1LjAiUyA0NiwzMiczOS4yIlc!5e0!3m2!1spt-BR!2sbr!4v1700000000000"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen={true}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
-                ></iframe>
-              </div>
-            </div>
+<div className="w-full h-80 bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm relative group">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.5123456789!2d-46.1234567!3d-23.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zQ29udGVwb2wgLSBUZWNub2xvZ2lhIGVtIFBvbGl1cmV0YW5v!5e0!3m2!1spt-BR!2sbr!4v1712345678901!5m2!1spt-BR!2sbr"
+    width="100%"
+    height="100%"
+    style={{ border: 0 }}
+    allowFullScreen={true}
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-700"
+  ></iframe>
+</div>
           </Reveal>
 
           {/* LADO DIREITO: FORMULÁRIO */}
