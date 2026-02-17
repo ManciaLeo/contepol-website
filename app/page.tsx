@@ -53,14 +53,13 @@ export default function Home() {
         <div className="z-10 text-center max-w-4xl space-y-6 mt-10">
           <Reveal>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
-              Tecnologia em <span className="text-red-700 dark:text-red-600">Poliuretano</span>.
+              Solidez e Inovação em <span className="text-red-700 dark:text-red-600">Pré-moldados</span>.
             </h1>
           </Reveal>
 
           <Reveal delay={0.2}>
             <p className="text-xl text-slate-600 dark:text-slate-400 md:text-2xl font-light">
-              Soluções industriais de alta performance e durabilidade.
-              Do projeto à peça técnica.
+              Soluções de engenharia em concreto para infraestrutura, urbanismo e grandes obras, fabricadas com rigor técnico no Maranhão.
             </p>
           </Reveal>
 
