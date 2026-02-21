@@ -3,22 +3,56 @@
 import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 
-export function Footer() {
+export const Footer = () => {
   return (
-    <footer className="bg-slate-950 border-t border-slate-900 text-slate-400 py-16 transition-colors duration-300 relative z-40">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8">
+    <footer className="bg-[#020617] dark:bg-slate-950 text-slate-400 py-16 border-t border-slate-800 relative z-40">
+      <div className="container mx-auto px-6 max-w-7xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 text-sm">
           
-          {/* --- COLUNA 1: LOGO E SOBRE --- */}
-          <div className="col-span-1 md:col-span-2">
-            <h3 className="text-3xl font-extrabold text-white mb-6 tracking-tight">
-              Contepol<span className="text-[#F15A24]">.</span>
-            </h3>
-            <p className="max-w-md leading-relaxed mb-8 text-slate-400 font-medium">
-              Engenharia em pré-moldados e soluções industriais de alta performance. Qualidade e solidez que constroem o futuro do Maranhão e do Brasil.
+          {/* COLUNA 1: LOGO E SOBRE */}
+          <div className="space-y-6">
+            {/* Logo boxzinho branco */}
+            <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center p-2 shadow-sm">
+              <img src="/logo_contepol_.svg" alt="Contepol Logo" className="w-full h-full object-contain" />
+            </div>
+            <p className="leading-relaxed max-w-xs text-slate-500 dark:text-slate-400">
+              Soluções avançadas em poliuretano para alta performance industrial. Durabilidade e engenharia de precisão.
             </p>
-            
-            {/* REDES SOCIAIS (COM OS LINKS BLINDADOS) */}
+          </div>
+
+          {/* COLUNA 2: NAVEGAÇÃO */}
+          <div className="space-y-6">
+            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Navegação</h4>
+            <ul className="space-y-4">
+              <li><Link href="/" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Início</Link></li>
+              <li><Link href="/produtos" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Produtos</Link></li>
+              <li><Link href="#empresa" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">A Empresa</Link></li>
+              <li><Link href="/contato" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Contato</Link></li>
+            </ul>
+          </div>
+
+          {/* COLUNA 3: CONTATO */}
+          <div className="space-y-6">
+            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Contato</h4>
+            <ul className="space-y-4">
+              <li className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                <Phone className="w-4 h-4 text-teal-600 dark:text-teal-500" />
+                <span>(98) 99999-9999</span>
+              </li>
+              <li className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                <Mail className="w-4 h-4 text-teal-600 dark:text-teal-500" />
+                <span>contato@contepol.com.br</span>
+              </li>
+              <li className="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+                <MapPin className="w-4 h-4 text-teal-600 dark:text-teal-500" />
+                <span>São Luís, MA</span>
+              </li>
+            </ul>
+          </div>
+
+          {/* COLUNA 4: REDES SOCIAIS */}
+          <div className="space-y-6">
+            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Redes Sociais</h4>
             <div className="flex gap-4">
               
               {/* Botão LinkedIn */}
@@ -26,80 +60,36 @@ export function Footer() {
                 href="https://www.linkedin.com/company/contepol" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="relative z-50 p-3 rounded-full bg-slate-900 text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
-                aria-label="Acessar LinkedIn da Contepol"
+                className="relative z-50 p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all shadow-sm"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
 
-              {/* Botão Instagram (CORRIGIDO PARA contepol.oficial E FUNCIONANDO) */}
+              {/* Botão Instagram (CORRIGIDO PARA O LINK EXATO) */}
               <a 
                 href="https://www.instagram.com/contepol.oficial/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="relative z-50 p-3 rounded-full bg-slate-900 text-slate-400 hover:bg-gradient-to-tr hover:from-[#f09433] hover:via-[#dc2743] hover:to-[#bc1888] hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
-                aria-label="Acessar Instagram da Contepol"
+                className="relative z-50 p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all shadow-sm"
               >
                 <Instagram className="w-5 h-5" />
               </a>
-              
+
             </div>
-          </div>
-
-          {/* --- COLUNA 2: NAVEGAÇÃO RÁPIDA --- */}
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Menu</h4>
-            <ul className="space-y-4">
-              <li>
-                <Link href="/" className="hover:text-[#F15A24] transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-[#F15A24] transition-colors"></span>
-                  Início
-                </Link>
-              </li>
-              <li>
-                <Link href="/produtos" className="hover:text-[#F15A24] transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-[#F15A24] transition-colors"></span>
-                  Mostruário
-                </Link>
-              </li>
-              <li>
-                <Link href="/contato" className="hover:text-[#F15A24] transition-colors flex items-center gap-2 group">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-800 group-hover:bg-[#F15A24] transition-colors"></span>
-                  Fale Conosco
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* --- COLUNA 3: CONTATO E ENDEREÇO --- */}
-          <div>
-            <h4 className="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contato</h4>
-            <ul className="space-y-5 text-sm">
-              <li className="flex items-start gap-3 group">
-                <MapPin className="w-5 h-5 text-slate-600 group-hover:text-[#F15A24] shrink-0 mt-0.5 transition-colors" />
-                <span className="leading-relaxed">São Luís - MA<br/>Distrito Industrial</span>
-              </li>
-              <li className="flex items-center gap-3 group">
-                <Phone className="w-5 h-5 text-slate-600 group-hover:text-[#F15A24] shrink-0 transition-colors" />
-                <span className="font-mono mt-1">(98) 99999-9999</span>
-              </li>
-              <li className="flex items-center gap-3 group cursor-pointer hover:text-white transition-colors">
-                <Mail className="w-5 h-5 text-slate-600 group-hover:text-[#F15A24] shrink-0 transition-colors" />
-                <span>contato@contepol.com.br</span>
-              </li>
-            </ul>
           </div>
 
         </div>
 
-        {/* --- RODAPÉ INFERIOR (COPYRIGHT) --- */}
-        <div className="mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-medium text-slate-600">
-          <p>© {new Date().getFullYear()} Contepol. Todos os direitos reservados.</p>
-          <p className="flex items-center gap-1">
-            Projetado com <span className="text-[#F15A24]">solidez</span> e tecnologia.
+        {/* RODAPÉ FINAL (COPYRIGHT) */}
+        <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
+          <p className="text-slate-500 dark:text-slate-500">
+            © {new Date().getFullYear()} Contepol Tecnologia em Poliuretano. Todos os direitos reservados.
+          </p>
+          <p className="text-slate-500 dark:text-slate-500">
+            Desenvolvido por <span className="font-semibold text-slate-700 dark:text-slate-300">meup4i</span>
           </p>
         </div>
       </div>
     </footer>
   );
-}
+};
