@@ -5,7 +5,6 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
-// Certifique-se que seus arquivos SVGs estão salvos com esses nomes na pasta public/logos/
 const parceiros = [
   { nome: "Alumar", icone: "/logos/logo-alumar.svg" },
   { nome: "Canopus", icone: "/logos/logo-canopus.svg" },
@@ -20,11 +19,12 @@ const parceiros = [
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col bg-white transition-colors duration-300 overflow-x-hidden">
+    // Adicionado dark:bg-slate-950 aqui no main
+    <main className="flex min-h-screen flex-col bg-white dark:bg-slate-950 transition-colors duration-300 overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10">
+        <div className="absolute inset-0 z-0 opacity-10 dark:opacity-5 transition-opacity">
           <img 
             src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2072&auto=format&fit=crop" 
             alt="Fábrica" 
@@ -34,12 +34,12 @@ export default function Home() {
         
         <div className="container mx-auto px-6 z-10 text-center">
           <Reveal>
-            <h1 className="text-5xl md:text-8xl font-bold text-slate-900 mb-6 tracking-tight">
+            <h1 className="text-5xl md:text-8xl font-bold text-slate-900 dark:text-white mb-6 tracking-tight transition-colors">
               Solidez em <span className="text-[#F15A24]">Pré-moldados.</span>
             </h1>
           </Reveal>
           <Reveal delay={0.2}>
-            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+            <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-2xl mx-auto mb-10 transition-colors">
               Qualidade industrial para infraestrutura e urbanismo com o selo de excelência Contepol.
             </p>
           </Reveal>
@@ -48,7 +48,7 @@ export default function Home() {
               <Link href="/produtos" className="px-8 py-4 bg-[#F15A24] text-white font-bold rounded-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20">
                 Ver Catálogo
               </Link>
-              <Link href="/contato" className="px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition-all">
+              <Link href="/contato" className="px-8 py-4 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition-all">
                 Fale Conosco
               </Link>
             </div>
@@ -56,18 +56,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* --- LETREIRO DE LOGOS (ATUALIZADO: MAIOR, COLORIDO E COM CONTRASTE) --- */}
-      <section className="py-16 bg-white border-y border-slate-100 relative">
+      {/* --- LETREIRO DE LOGOS --- */}
+      <section className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 relative transition-colors">
         <div className="container mx-auto px-6 mb-10">
-          <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">
+          <p className="text-center text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-[0.4em]">
             ENGENHARIA DE CONFIANÇA APROVADA POR GRANDES INDÚSTRIAS
           </p>
         </div>
 
         <div className="relative w-full overflow-hidden py-4">
-          {/* Efeito de Fade nas pontas */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white to-transparent z-10" />
+          {/* Efeitos de Fade com suporte ao dark mode */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
 
           <motion.div 
             className="flex gap-16 md:gap-32 items-center"
@@ -79,12 +79,8 @@ export default function Home() {
                 key={index}
                 src={parceiro.icone} 
                 alt={parceiro.nome} 
-                // AQUI ESTÁ A MUDANÇA:
-                // 1. h-12 md:h-16 -> Aumentou o tamanho
-                // 2. Removi grayscale e opacity -> Sempre colorido
-                // 3. drop-shadow-sm -> Sombra suave para destacar partes brancas
-                // 4. hover:scale-110 -> Efeito de zoom ao passar o mouse
-                className="h-12 md:h-16 w-auto drop-shadow-sm hover:drop-shadow-md hover:scale-110 transition-all duration-300 cursor-pointer" 
+                // Brilho branco suave ativado no dark mode (dark:drop-shadow-...)
+                className="h-12 md:h-16 w-auto drop-shadow-sm dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] hover:drop-shadow-md hover:scale-110 transition-all duration-300 cursor-pointer" 
               />
             ))}
           </motion.div>
@@ -96,12 +92,12 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
             <Reveal>
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-6 leading-tight transition-colors">
                 A engenharia por trás da <br/> <span className="text-[#F15A24]">excelência.</span>
               </h2>
             </Reveal>
             <Reveal delay={0.2}>
-              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 text-lg transition-colors">
                 Com experiência sólida no desenvolvimento de soluções em concreto, a Contepol se consolidou como parceira estratégica de construtoras e indústrias no Maranhão. Nosso foco é precisão técnica e durabilidade extrema.
               </p>
             </Reveal>
@@ -122,7 +118,7 @@ export default function Home() {
             </div>
           </div>
           <Reveal delay={0.4}>
-            <div className="bg-slate-100 rounded-3xl aspect-video flex items-center justify-center border border-slate-200 text-slate-400 shadow-inner">
+            <div className="bg-slate-100 dark:bg-slate-900 rounded-3xl aspect-video flex items-center justify-center border border-slate-200 dark:border-slate-800 text-slate-400 shadow-inner transition-colors">
               <p className="font-medium italic">Espaço reservado para foto da fábrica/equipe</p>
             </div>
           </Reveal>
@@ -130,31 +126,31 @@ export default function Home() {
       </section>
 
       {/* --- MOSTRUÁRIO --- */}
-      <section className="py-24 bg-slate-50">
+      <section className="py-24 bg-slate-50 dark:bg-slate-900/20 transition-colors">
         <div className="container mx-auto px-6">
           <div className="mb-16 text-center md:text-left">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Nosso Mostruário</h2>
-            <p className="text-lg text-slate-600">Versatilidade que atende às exigências mais extremas.</p>
+            <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4 transition-colors">Nosso Mostruário</h2>
+            <p className="text-lg text-slate-600 dark:text-slate-400 transition-colors">Versatilidade que atende às exigências mais extremas.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <Reveal>
-              <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 hover:shadow-xl transition-all group h-full flex flex-col">
-                <div className="w-14 h-14 bg-green-50 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
+              <div className="bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-200/60 dark:border-slate-800 hover:shadow-xl dark:hover:shadow-slate-800/50 transition-all group h-full flex flex-col">
+                <div className="w-14 h-14 bg-green-50 dark:bg-green-900/20 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
                   <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-900">Peças Técnicas</h3>
-                <p className="text-slate-600 leading-relaxed flex-grow">Moldagem de precisão em concreto para reposição industrial, saneamento e demandas específicas.</p>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Peças Técnicas</h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed flex-grow">Moldagem de precisão em concreto para reposição industrial, saneamento e demandas específicas.</p>
               </div>
             </Reveal>
 
             <Reveal delay={0.2}>
-              <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 hover:shadow-xl transition-all group h-full flex flex-col">
-                <div className="w-14 h-14 bg-green-50 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
+              <div className="bg-white dark:bg-slate-900 p-10 rounded-[2rem] border border-slate-200/60 dark:border-slate-800 hover:shadow-xl dark:hover:shadow-slate-800/50 transition-all group h-full flex flex-col">
+                <div className="w-14 h-14 bg-green-50 dark:bg-green-900/20 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
                   <CheckCircle2 className="w-7 h-7" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4 text-slate-900">Infraestrutura</h3>
-                <p className="text-slate-600 leading-relaxed flex-grow">Soluções completas para drenagem, pavimentação intertravada, meio-fio e obras viárias de grande porte.</p>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900 dark:text-white">Infraestrutura</h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed flex-grow">Soluções completas para drenagem, pavimentação intertravada, meio-fio e obras viárias de grande porte.</p>
               </div>
             </Reveal>
           </div>
