@@ -1,99 +1,76 @@
 "use client";
 
 import { Reveal } from "@/components/animations/Reveal";
-import { Wrench, Shield, Pickaxe, Settings, Factory, Building2, Tractor, Truck, Cpu } from "lucide-react";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
+// Certifique-se que seus arquivos SVGs estão salvos com esses nomes na pasta public/logos/
+const parceiros = [
+  { nome: "Alumar", icone: "/logos/logo-alumar.svg" },
+  { nome: "Canopus", icone: "/logos/logo-canopus.svg" },
+  { nome: "Dimensão", icone: "/logos/logo-dimensao.svg" },
+  { nome: "CDC Consil", icone: "/logos/logo-cdcconsil.svg" },
+  { nome: "EIP", icone: "/logos/logo-eip.svg" },
+  { nome: "Equatorial", icone: "/logos/logo-equatorial.svg" },
+  { nome: "Lua Nova", icone: "/logos/logo-luanova.svg" },
+  { nome: "Lucena", icone: "/logos/logo-lucena.svg" },
+  { nome: "Vale", icone: "/logos/logo-vale.svg" },
+];
+
 export default function Home() {
-  const produtos = [
-    {
-      titulo: "Peças Técnicas",
-      descricao: "Usinagem e moldagem de precisão para reposição industrial.",
-      icone: <Wrench className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
-      colSpan: "md:col-span-2",
-    },
-    {
-      titulo: "Revestimentos em PU",
-      descricao: "Proteção contra abrasão e impacto para rolos e cilindros.",
-      icone: <Shield className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
-      colSpan: "md:col-span-1",
-    },
-    {
-      titulo: "Mineração e Siderurgia",
-      descricao: "Peneiras, raspadores e hidrociclones de alta durabilidade.",
-      icone: <Pickaxe className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
-      colSpan: "md:col-span-1",
-    },
-    {
-      titulo: "Projetos Customizados",
-      descricao: "Engenharia reversa e desenvolvimento sob medida para sua planta.",
-      icone: <Settings className="w-8 h-8 text-teal-600 dark:text-teal-500" />,
-      colSpan: "md:col-span-2",
-    },
-  ];
-
-  // ARRAY DE PARCEIROS ATUALIZADO COM AS SUAS LOGOS VETORIZADAS
-  const parceiros = [
-    { nome: "Alumar", icone: "/logos/logo-alumar.svg" },
-    { nome: "Canopus", icone: "/logos/logo-canopus.svg" },
-    { nome: "Dimensão", icone: "/logos/logo-dimensao.svg" },
-    { nome: "Edeconsil", icone: "/logos/logo-edeconsil.svg" },
-    { nome: "EIP", icone: "/logos/logo-eip.svg" },
-    { nome: "Equatorial", icone: "/logos/logo-equatorial.svg" },
-    { nome: "Lua Nova", icone: "/logos/logo-luanova.svg" },
-    { nome: "Lucena", icone: "/logos/logo-lucena.svg" },
-    { nome: "Vale", icone: "/logos/logo-vale.svg" },
-  ];
-
   return (
-    <main className="flex min-h-screen flex-col items-center bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 overflow-x-hidden font-sans transition-colors duration-300">
+    <main className="flex min-h-screen flex-col bg-white transition-colors duration-300 overflow-x-hidden">
       
-      {/* HERO SECTION */}
-      <section 
-        className="w-full min-h-screen flex flex-col items-center justify-center relative px-6 py-20 bg-cover bg-center bg-no-repeat bg-fixed border-b border-slate-200 dark:border-slate-800 transition-colors duration-300"
-        style={{ backgroundImage: "url('/fundo-hero.png')" }}
-      >
-        <div className="absolute inset-0 z-0 bg-white/85 dark:bg-slate-950/85 backdrop-blur-[2px] transition-colors duration-300" />
-
-        <div className="z-10 text-center max-w-4xl space-y-6 mt-10">
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10">
+          <img 
+            src="https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?q=80&w=2072&auto=format&fit=crop" 
+            alt="Fábrica" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        
+        <div className="container mx-auto px-6 z-10 text-center">
           <Reveal>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
-              Solidez em <span className="text-red-700 dark:text-red-600">Pré-moldados</span>.
+            <h1 className="text-5xl md:text-8xl font-bold text-slate-900 mb-6 tracking-tight">
+              Solidez em <span className="text-[#F15A24]">Pré-moldados.</span>
             </h1>
           </Reveal>
-
           <Reveal delay={0.2}>
-            <p className="text-xl text-slate-600 dark:text-slate-400 md:text-2xl font-light">
-              Qualidade industrial para infraestrutura e urbanismo.
+            <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto mb-10">
+              Qualidade industrial para infraestrutura e urbanismo com o selo de excelência Contepol.
             </p>
           </Reveal>
-
           <Reveal delay={0.4}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-              <a href="#produtos" className="px-8 py-3 bg-[#F15A24] hover:bg-orange-600 text-white rounded-full font-medium transition-all duration-300 transform hover:scale-105 text-center shadow-md">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/produtos" className="px-8 py-4 bg-[#F15A24] text-white font-bold rounded-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20">
                 Ver Catálogo
-              </a>
-              <a href="#contato" className="px-8 py-3 border border-slate-300 dark:border-slate-700 hover:border-teal-600 dark:hover:border-teal-500 text-slate-600 dark:text-slate-300 hover:text-teal-700 dark:hover:text-teal-400 rounded-full transition-all duration-300 text-center bg-white dark:bg-slate-900/50 shadow-sm">
+              </Link>
+              <Link href="/contato" className="px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-xl hover:bg-slate-50 transition-all">
                 Fale Conosco
-              </a>
+              </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* SEÇÃO LETREIRO - ATUALIZADA COM LOGOS SVG E EFEITO FADE */}
-      <section className="w-full py-12 bg-white dark:bg-slate-900/30 border-b border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center z-10 transition-colors duration-300 relative">
-        <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8 text-center">
-          Engenharia de confiança aprovada por grandes indústrias
-        </p>
-        
-        <div className="relative w-full overflow-hidden flex items-center">
-          {/* Efeitos de Fade nas extremidades */}
-          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
-          
-          <motion.div
-            className="flex gap-16 md:gap-28 items-center w-max"
+      {/* --- LETREIRO DE LOGOS (ATUALIZADO: MAIOR, COLORIDO E COM CONTRASTE) --- */}
+      <section className="py-16 bg-white border-y border-slate-100 relative">
+        <div className="container mx-auto px-6 mb-10">
+          <p className="text-center text-[10px] font-bold text-slate-400 uppercase tracking-[0.4em]">
+            ENGENHARIA DE CONFIANÇA APROVADA POR GRANDES INDÚSTRIAS
+          </p>
+        </div>
+
+        <div className="relative w-full overflow-hidden py-4">
+          {/* Efeito de Fade nas pontas */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white to-transparent z-10" />
+
+          <motion.div 
+            className="flex gap-16 md:gap-32 items-center"
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
@@ -102,119 +79,114 @@ export default function Home() {
                 key={index}
                 src={parceiro.icone} 
                 alt={parceiro.nome} 
-                className="h-8 md:h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer" 
+                // AQUI ESTÁ A MUDANÇA:
+                // 1. h-12 md:h-16 -> Aumentou o tamanho
+                // 2. Removi grayscale e opacity -> Sempre colorido
+                // 3. drop-shadow-sm -> Sombra suave para destacar partes brancas
+                // 4. hover:scale-110 -> Efeito de zoom ao passar o mouse
+                className="h-12 md:h-16 w-auto drop-shadow-sm hover:drop-shadow-md hover:scale-110 transition-all duration-300 cursor-pointer" 
               />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* SEÇÃO: QUEM SOMOS / A EMPRESA */}
-      <section id="empresa" className="w-full max-w-7xl px-6 py-24 z-10 border-b border-slate-200 dark:border-slate-800">
+      {/* --- SEÇÃO SOBRE / ESTATÍSTICAS --- */}
+      <section className="py-24 container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <Reveal>
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white">
-                A engenharia por trás da <span className="text-[#F15A24]">excelência</span>.
+          <div>
+            <Reveal>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+                A engenharia por trás da <br/> <span className="text-[#F15A24]">excelência.</span>
               </h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                Com experiência sólida no desenvolvimento de soluções em poliuretano, a Contepol se consolidou como parceira estratégica das indústrias, minerações e construtoras do país. Nosso foco é resolver problemas complexos de desgaste, abrasão e impacto.
+            </Reveal>
+            <Reveal delay={0.2}>
+              <p className="text-slate-600 leading-relaxed mb-8 text-lg">
+                Com experiência sólida no desenvolvimento de soluções em concreto, a Contepol se consolidou como parceira estratégica de construtoras e indústrias no Maranhão. Nosso foco é precisão técnica e durabilidade extrema.
               </p>
-              <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                Mais do que fabricar peças, nós entregamos confiabilidade operacional. Nossa planta fabril conta com tecnologia para engenharia reversa e formulações customizadas que garantem a durabilidade extrema que o seu maquinário exige.
-              </p>
-              
-              <div className="pt-6 flex flex-wrap gap-8">
-                <div>
-                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">+10</h4>
-                  <p className="text-sm text-slate-500 font-medium mt-1">Anos de Mercado</p>
-                </div>
-                <div>
-                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">+500</h4>
-                  <p className="text-sm text-slate-500 font-medium mt-1">Projetos Entregues</p>
-                </div>
-                <div>
-                  <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">100%</h4>
-                  <p className="text-sm text-slate-500 font-medium mt-1">Nacional</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.2}>
-            <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
-              <div className="absolute inset-0 bg-slate-100 dark:bg-slate-900 animate-pulse flex flex-col items-center justify-center text-center p-6">
-                <Factory className="w-12 h-12 text-slate-300 dark:text-slate-700 mb-4" />
-                <span className="text-slate-500 dark:text-slate-400 font-medium">Espaço reservado para foto da fábrica/equipe</span>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* SEÇÃO BENTO GRID */}
-      <section id="produtos" className="w-full max-w-6xl px-6 py-24 z-10 border-b border-slate-200 dark:border-slate-800">
-        <Reveal>
-          <div className="mb-12 text-center md:text-left">
-            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4">Nosso Mostruário</h2>
-            <p className="text-slate-600 dark:text-slate-400 text-lg">Versatilidade que atende às exigências mais extremas.</p>
-          </div>
-        </Reveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {produtos.map((item, index) => (
-            <div key={index} className={item.colSpan}>
-              <Reveal delay={0.2 + (index * 0.1)}>
-                <div className="h-full bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-teal-500/50 transition-all duration-300 p-8 rounded-3xl flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md dark:shadow-none">
-                  <div className="mb-6 bg-teal-50 dark:bg-teal-900/30 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shrink-0">
-                    {item.icone}
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-semibold text-slate-900 dark:text-white mb-2">{item.titulo}</h3>
-                    <p className="text-slate-600 dark:text-slate-400">{item.descricao}</p>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-          ))}
-        </div>
-      </section>
-
-     {/* SEÇÃO NEWSLETTER TÉCNICA */}
-      <section className="w-full max-w-5xl px-6 py-24 z-10 mx-auto">
-        <Reveal>
-          <div className="bg-slate-900 dark:bg-slate-900/50 border border-slate-800 p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F15A24]/10 rounded-full blur-3xl -mr-32 -mt-32 transition-all group-hover:bg-[#F15A24]/20" />
+            </Reveal>
             
-            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
-                  Mantenha sua planta <br />
-                  <span className="text-[#F15A24]">sempre atualizada</span>.
-                </h2>
-                <p className="text-slate-400 text-lg">
-                  Assine nossa newsletter técnica e receba em seu e-mail conteúdos exclusivos sobre manutenção preditiva e inovações em elastômeros.
-                </p>
+            <div className="grid grid-cols-3 gap-8">
+              <div className="text-center md:text-left">
+                <p className="text-3xl font-bold text-[#00A884]">+10</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Anos de Mercado</p>
               </div>
+              <div className="text-center md:text-left">
+                <p className="text-3xl font-bold text-[#00A884]">+500</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Projetos Entregues</p>
+              </div>
+              <div className="text-center md:text-left">
+                <p className="text-3xl font-bold text-[#00A884]">100%</p>
+                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Nacional</p>
+              </div>
+            </div>
+          </div>
+          <Reveal delay={0.4}>
+            <div className="bg-slate-100 rounded-3xl aspect-video flex items-center justify-center border border-slate-200 text-slate-400 shadow-inner">
+              <p className="font-medium italic">Espaço reservado para foto da fábrica/equipe</p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-              <div className="flex flex-col gap-4">
-                <form className="flex flex-col sm:flex-row gap-3">
-                  <input 
-                    type="email" 
-                    placeholder="Seu melhor e-mail" 
-                    className="flex-1 bg-slate-800 border border-slate-700 rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-[#F15A24] transition-all"
-                  />
-                  <button 
-                    type="button"
-                    className="px-8 py-4 bg-[#F15A24] text-white font-bold rounded-2xl hover:bg-orange-600 transition-all shadow-lg whitespace-nowrap"
-                  >
-                    Inscrever-se
-                  </button>
-                </form>
-                <p className="text-xs text-slate-500 ml-2">
-                  Prometemos não enviar spam. Apenas conhecimento técnico.
-                </p>
+      {/* --- MOSTRUÁRIO --- */}
+      <section className="py-24 bg-slate-50">
+        <div className="container mx-auto px-6">
+          <div className="mb-16 text-center md:text-left">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Nosso Mostruário</h2>
+            <p className="text-lg text-slate-600">Versatilidade que atende às exigências mais extremas.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Reveal>
+              <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 hover:shadow-xl transition-all group h-full flex flex-col">
+                <div className="w-14 h-14 bg-green-50 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900">Peças Técnicas</h3>
+                <p className="text-slate-600 leading-relaxed flex-grow">Moldagem de precisão em concreto para reposição industrial, saneamento e demandas específicas.</p>
               </div>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="bg-white p-10 rounded-[2rem] border border-slate-200/60 hover:shadow-xl transition-all group h-full flex flex-col">
+                <div className="w-14 h-14 bg-green-50 text-[#00A884] rounded-2xl flex items-center justify-center mb-8 group-hover:bg-[#F15A24] group-hover:text-white transition-colors shadow-sm">
+                  <CheckCircle2 className="w-7 h-7" />
+                </div>
+                <h3 className="text-2xl font-bold mb-4 text-slate-900">Infraestrutura</h3>
+                <p className="text-slate-600 leading-relaxed flex-grow">Soluções completas para drenagem, pavimentação intertravada, meio-fio e obras viárias de grande porte.</p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* --- NEWSLETTER --- */}
+      <section className="py-24 container mx-auto px-6">
+        <Reveal>
+          <div className="bg-slate-950 rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#F15A24]/20 blur-[120px] rounded-full -mr-48 -mt-48" />
+            <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#00A884]/10 blur-[120px] rounded-full -ml-48 -mb-48" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                Mantenha sua planta <br/> <span className="text-[#F15A24]">sempre atualizada.</span>
+              </h2>
+              <p className="text-slate-400 max-w-xl mx-auto mb-12 text-lg font-medium">
+                Assine nossa newsletter técnica e receba conteúdos exclusivos sobre infraestrutura e inovações em concreto.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input 
+                  type="email" 
+                  placeholder="Seu e-mail corporativo" 
+                  className="flex-1 bg-white/5 border border-white/10 rounded-2xl px-6 py-5 text-white outline-none focus:border-[#F15A24] focus:bg-white/10 transition-all placeholder:text-slate-500"
+                />
+                <button className="bg-[#F15A24] text-white font-bold px-10 py-5 rounded-2xl hover:bg-orange-600 transition-all shadow-lg shadow-orange-600/20">
+                  Inscrever-se
+                </button>
+              </div>
+              <p className="text-slate-500 text-sm mt-6 italic">Prometemos não enviar spam. Apenas conhecimento técnico.</p>
             </div>
           </div>
         </Reveal>
