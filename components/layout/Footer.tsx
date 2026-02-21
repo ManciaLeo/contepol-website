@@ -64,7 +64,7 @@ export const Footer = () => {
               <a href="#" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/contepol.oficial" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all">
+              <a href="https://www.instagram.com/contepol.oficial" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
