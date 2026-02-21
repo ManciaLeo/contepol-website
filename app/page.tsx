@@ -10,7 +10,7 @@ const parceiros = [
   { nome: "Alumar", icone: "/logos/logo-alumar.svg" },
   { nome: "Canopus", icone: "/logos/logo-canopus.svg" },
   { nome: "Dimensão", icone: "/logos/logo-dimensao.svg" },
-  { nome: "CDC Consil", icone: "/logos/logo-cdcconsil.svg" },
+  { nome: "Edeconsil", icone: "/logos/logo-edeconsil.svg" },
   { nome: "EIP", icone: "/logos/logo-eip.svg" },
   { nome: "Equatorial", icone: "/logos/logo-equatorial.svg" },
   { nome: "Lua Nova", icone: "/logos/logo-luanova.svg" },
