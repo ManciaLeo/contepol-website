@@ -58,18 +58,28 @@ export const Footer = () => {
           </div>
 
           {/* COLUNA 4: REDES SOCIAIS */}
-          <div className="space-y-6">
-            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Redes Sociais</h4>
-            <div className="flex gap-4">
-              <a href="#" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="https://www.instagram.com/contepol.oficial" target="_blank" rel="noreferrer" className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all">
-                <Instagram className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-        </div>
+          <div className="flex gap-4">
+            {/* LINKEDIN */}
+            <a 
+              href="https://www.linkedin.com/company/contepol" // Coloque o link real aqui depois
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+
+                {/* INSTAGRAM */}
+                <a 
+                  href="https://www.instagram.com/contepol_oficial" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-2 rounded-full bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:text-white transition-all"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+              </div>
+              </div>
 
         {/* RODAPÉ FINAL (COPYRIGHT) */}
         <div className="mt-12 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
