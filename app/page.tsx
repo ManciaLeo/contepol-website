@@ -32,12 +32,17 @@ export default function Home() {
     },
   ];
 
+  // ARRAY DE PARCEIROS ATUALIZADO COM AS SUAS LOGOS VETORIZADAS
   const parceiros = [
-    { nome: "Siderurgia Nacional", icone: <Factory className="w-8 h-8" /> },
-    { nome: "Construtora Alpha", icone: <Building2 className="w-8 h-8" /> },
-    { nome: "AgroTech Brasil", icone: <Tractor className="w-8 h-8" /> },
-    { nome: "Logística Express", icone: <Truck className="w-8 h-8" /> },
-    { nome: "Indústria Tech", icone: <Cpu className="w-8 h-8" /> },
+    { nome: "Alumar", icone: "/logos/logo-alumar.svg" },
+    { nome: "Canopus", icone: "/logos/logo-canopus.svg" },
+    { nome: "Dimensão", icone: "/logos/logo-dimensao.svg" },
+    { nome: "CDC Consil", icone: "/logos/logo-cdcconsil.svg" },
+    { nome: "EIP", icone: "/logos/logo-eip.svg" },
+    { nome: "Equatorial", icone: "/logos/logo-equatorial.svg" },
+    { nome: "Lua Nova", icone: "/logos/logo-luanova.svg" },
+    { nome: "Lucena", icone: "/logos/logo-lucena.svg" },
+    { nome: "Vale", icone: "/logos/logo-vale.svg" },
   ];
 
   return (
@@ -76,32 +81,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SEÇÃO LETREIRO - EMPRESAS PARCEIRAS */}
-      <section className="w-full py-12 bg-white dark:bg-slate-900/30 border-b border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col items-center justify-center z-10 transition-colors duration-300">
+      {/* SEÇÃO LETREIRO - ATUALIZADA COM LOGOS SVG E EFEITO FADE */}
+      <section className="w-full py-12 bg-white dark:bg-slate-900/30 border-b border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center z-10 transition-colors duration-300 relative">
         <p className="text-sm font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-8 text-center">
           Engenharia de confiança aprovada por grandes indústrias
         </p>
         
-        <div className="relative w-full max-w-7xl overflow-hidden flex items-center">
-          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
-          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
+        <div className="relative w-full overflow-hidden flex items-center">
+          {/* Efeitos de Fade nas extremidades */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-white dark:from-slate-950 to-transparent z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-white dark:from-slate-950 to-transparent z-10" />
           
           <motion.div
-            className="flex gap-16 md:gap-24 items-center w-max pl-16 md:pl-24"
+            className="flex gap-16 md:gap-28 items-center w-max"
             animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, ease: "linear", duration: 25 }}
+            transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
             {[...parceiros, ...parceiros].map((parceiro, index) => (
-              <div key={index} className="flex items-center gap-3 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors grayscale hover:grayscale-0 cursor-default opacity-70 hover:opacity-100">
-                {parceiro.icone}
-                <span className="text-xl font-bold font-sans tracking-tight">{parceiro.nome}</span>
-              </div>
+              <img 
+                key={index}
+                src={parceiro.icone} 
+                alt={parceiro.nome} 
+                className="h-8 md:h-12 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer" 
+              />
             ))}
           </motion.div>
         </div>
       </section>
 
-      {/* NOVA SEÇÃO: QUEM SOMOS / A EMPRESA */}
+      {/* SEÇÃO: QUEM SOMOS / A EMPRESA */}
       <section id="empresa" className="w-full max-w-7xl px-6 py-24 z-10 border-b border-slate-200 dark:border-slate-800">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <Reveal>
@@ -116,7 +124,6 @@ export default function Home() {
                 Mais do que fabricar peças, nós entregamos confiabilidade operacional. Nossa planta fabril conta com tecnologia para engenharia reversa e formulações customizadas que garantem a durabilidade extrema que o seu maquinário exige.
               </p>
               
-              {/* Números de Prova Social */}
               <div className="pt-6 flex flex-wrap gap-8">
                 <div>
                   <h4 className="text-3xl md:text-4xl font-bold text-teal-600 dark:text-teal-500">+10</h4>
@@ -134,7 +141,6 @@ export default function Home() {
             </div>
           </Reveal>
 
-          {/* Espaço reservado para a Foto */}
           <Reveal delay={0.2}>
             <div className="relative w-full aspect-square md:aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800">
               <div className="absolute inset-0 bg-slate-100 dark:bg-slate-900 animate-pulse flex flex-col items-center justify-center text-center p-6">
@@ -178,7 +184,6 @@ export default function Home() {
       <section className="w-full max-w-5xl px-6 py-24 z-10 mx-auto">
         <Reveal>
           <div className="bg-slate-900 dark:bg-slate-900/50 border border-slate-800 p-10 md:p-16 rounded-[3rem] shadow-2xl relative overflow-hidden group">
-            {/* Detalhe visual de fundo */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-[#F15A24]/10 rounded-full blur-3xl -mr-32 -mt-32 transition-all group-hover:bg-[#F15A24]/20" />
             
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
