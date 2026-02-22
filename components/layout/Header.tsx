@@ -69,12 +69,32 @@ export const Header = () => {
     }
   `}} />
 
+  <Link href="/" className="relative flex items-center justify-center p-2 group">
+  
+  <style dangerouslySetInnerHTML={{__html: `
+    @keyframes neon-glow {
+      0% { filter: drop-shadow(0 0 2px rgba(241, 90, 36, 0.5)); }
+      100% { filter: drop-shadow(0 0 10px rgba(241, 90, 36, 0.9)) drop-shadow(0 0 20px rgba(241, 90, 36, 0.6)); }
+    }
+    .neon-svg {
+      animation: neon-glow 1.5s infinite alternate ease-in-out;
+      transition: all 0.3s ease;
+    }
+    .neon-svg:hover {
+      animation: none;
+      filter: drop-shadow(0 0 15px rgba(241, 90, 36, 1)) drop-shadow(0 0 30px rgba(241, 90, 36, 0.8)) brightness(1.1);
+      transform: scale(1.05);
+    }
+  `}} />
+
   <img 
     src="/logo_contepol_.svg" 
     alt="Contepol Logo" 
-    /* A classe 'neon-svg' é quem faz a mágica acontecer SÓ na imagem */
-    className="h-10 w-auto object-contain neon-svg relative z-10" 
+    /* 👇 AQUI ESTÁ A MUDANÇA: de h-10 para h-14 md:h-16 👇 */
+    className="h-14 md:h-16 w-auto object-contain neon-svg relative z-10" 
   />
+
+</Link>
 
 </Link>
 
