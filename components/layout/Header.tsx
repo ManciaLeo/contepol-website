@@ -48,12 +48,24 @@ export const Header = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 items-center h-20 md:h-24">
             
-            {/* LOGO */}
-            <div className="flex justify-start">
-              <Link href="/" className="dark:bg-white/90 dark:p-2 dark:rounded-xl">
-                <Image src="/logo_contepol_.svg" alt="Contepol" width={180} height={60} className="w-auto h-12 md:h-16" />
-              </Link>
-            </div>
+            <Link href="/" className="relative flex items-center justify-center group p-2">
+  
+  {/* EFEITO 1: O anel cyberpunk giratório (Laranja e Verde da Contepol) */}
+  <div className="absolute inset-0 bg-gradient-to-tr from-[#F15A24] via-transparent to-[#00A884] rounded-full blur-md opacity-50 group-hover:opacity-100 animate-[spin_3s_linear_infinite] transition-all duration-500"></div>
+
+  {/* EFEITO 2: O pulso neon do seu código antigo (Fica "respirando") */}
+  <div className="absolute inset-0 bg-[#F15A24]/30 blur-xl rounded-full animate-pulse"></div>
+
+  {/* EFEITO 3: A logo em si, com a sombra projetada (drop-shadow) */}
+  <div className="relative z-10 bg-white dark:bg-slate-900 rounded-xl p-1.5 border border-slate-200 dark:border-slate-800/50 shadow-sm drop-shadow-[0_0_8px_rgba(241,90,36,0.6)] group-hover:drop-shadow-[0_0_15px_rgba(241,90,36,1)] transition-all duration-300">
+    <img 
+      src="/logo_contepol_.svg" 
+      alt="Contepol Logo" 
+      className="w-10 h-10 object-contain" 
+    />
+  </div>
+
+</Link>
 
             {/* MENU DESKTOP CENTRALIZADO */}
             <nav className="hidden md:flex justify-center items-center space-x-10">
