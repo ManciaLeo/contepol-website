@@ -50,20 +50,33 @@ export const Header = () => {
             
             <Link href="/" className="relative flex items-center justify-center group p-2">
   
-  {/* EFEITO 1: O anel cyberpunk giratório (Laranja e Verde da Contepol) */}
-  <div className="absolute inset-0 bg-gradient-to-tr from-[#F15A24] via-transparent to-[#00A884] rounded-full blur-md opacity-50 group-hover:opacity-100 animate-[spin_3s_linear_infinite] transition-all duration-500"></div>
+  <Link href="/" className="relative flex items-center justify-center p-2 group">
+  
+  {/* Estilo embutido limpo: só aplica a luz NO CONTORNO da imagem, sem caixas soltas */}
+  <style dangerouslySetInnerHTML={{__html: `
+    @keyframes neon-glow {
+      0% { filter: drop-shadow(0 0 2px rgba(241, 90, 36, 0.5)); }
+      100% { filter: drop-shadow(0 0 10px rgba(241, 90, 36, 0.9)) drop-shadow(0 0 20px rgba(241, 90, 36, 0.6)); }
+    }
+    .neon-svg {
+      animation: neon-glow 1.5s infinite alternate ease-in-out;
+      transition: all 0.3s ease;
+    }
+    .neon-svg:hover {
+      animation: none;
+      filter: drop-shadow(0 0 15px rgba(241, 90, 36, 1)) drop-shadow(0 0 30px rgba(241, 90, 36, 0.8)) brightness(1.1);
+      transform: scale(1.05);
+    }
+  `}} />
 
-  {/* EFEITO 2: O pulso neon do seu código antigo (Fica "respirando") */}
-  <div className="absolute inset-0 bg-[#F15A24]/30 blur-xl rounded-full animate-pulse"></div>
+  <img 
+    src="/logo_contepol_.svg" 
+    alt="Contepol Logo" 
+    /* A classe 'neon-svg' é quem faz a mágica acontecer SÓ na imagem */
+    className="h-10 w-auto object-contain neon-svg relative z-10" 
+  />
 
-  {/* EFEITO 3: A logo em si, com a sombra projetada (drop-shadow) */}
-  <div className="relative z-10 bg-white dark:bg-slate-900 rounded-xl p-1.5 border border-slate-200 dark:border-slate-800/50 shadow-sm drop-shadow-[0_0_8px_rgba(241,90,36,0.6)] group-hover:drop-shadow-[0_0_15px_rgba(241,90,36,1)] transition-all duration-300">
-    <img 
-      src="/logo_contepol_.svg" 
-      alt="Contepol Logo" 
-      className="w-10 h-10 object-contain" 
-    />
-  </div>
+</Link>
 
 </Link>
 
