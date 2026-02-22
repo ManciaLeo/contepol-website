@@ -83,7 +83,7 @@ export const Footer = () => {
         {/* RODAPÉ FINAL (COPYRIGHT) */}
         <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs">
           <p>
-            © {new Date().getFullYear()} Contepol Tecnologia em Poliuretano. Todos os direitos reservados.
+            © {new Date().getFullYear()} Contepol Tecnologia em Concreto. Todos os direitos reservados.
           </p>
           <p>
             Desenvolvido por <span className="font-semibold text-slate-900 dark:text-white">meup4i</span>
