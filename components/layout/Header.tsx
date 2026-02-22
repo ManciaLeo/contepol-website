@@ -91,7 +91,7 @@ export const Header = () => {
     src="/logo_contepol_.svg" 
     alt="Contepol Logo" 
     /* 👇 AQUI ESTÁ A MUDANÇA: de h-10 para h-14 md:h-16 👇 */
-    className="h-14 md:h-16 w-auto object-contain neon-svg relative z-10" 
+    className="h-14 md:h-20 w-auto object-contain neon-svg relative z-10" 
   />
 
 </Link>
