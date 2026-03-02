@@ -117,9 +117,43 @@ export default function Contato() {
                   <textarea className="w-full flex-1 min-h-[150px] bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200 resize-none" placeholder="Informe as especificações da peça ou projeto..."></textarea>
                 </div>
                 
-                <button type="button" className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3">
-                  <Send className="w-5 h-5" /> Enviar Mensagem Técnica
-                </button>
+                <>
+  {/* 📱 VERSÃO MOBILE (Ecrãs pequenos): Usa a Opção 2 (Abre a App de E-mail) */}
+  {/* A classe 'block md:hidden' faz com que isto só apareça no telemóvel */}
+  <div className="block md:hidden">
+    <a 
+      href="mailto:comercial@contepol.com.br?subject=Contacto Técnico via Site - Contepol"
+      className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform active:translate-y-0 flex items-center justify-center gap-3 no-underline"
+    >
+      <Send className="w-5 h-5" /> Enviar Mensagem Técnica
+    </a>
+  </div>
+
+  {/* 💻 VERSÃO WEB/DESKTOP (Ecrãs grandes): Usa a Opção 1 (Formulário no site) */}
+  {/* A classe 'hidden md:block' faz com que isto só apareça no computador e tablets maiores */}
+  <div className="hidden md:block">
+    <form action="https://formsubmit.co/comercial@contepol.com.br" method="POST" className="space-y-4">
+      
+      {/* Exemplo de campos (Podes adicionar os teus aqui!) */}
+      {/* <input type="text" name="nome" placeholder="O seu Nome" className="..." required /> */}
+      {/* <input type="email" name="email" placeholder="O seu E-mail" className="..." required /> */}
+      {/* <textarea name="mensagem" placeholder="A sua Mensagem" className="..." required></textarea> */}
+
+      {/* Configurações invisíveis do FormSubmit para ficar mais profissional */}
+      <input type="hidden" name="_subject" value="Novo Contacto pelo Site - Contepol" />
+      <input type="hidden" name="_captcha" value="false" />
+      
+      {/* Botão de Enviar do Formulário */}
+      <button 
+        type="submit" 
+        className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3"
+      >
+        <Send className="w-5 h-5" /> Enviar Mensagem Técnica
+      </button>
+
+    </form>
+  </div>
+</>
               </form>
             </div>
           </Reveal>

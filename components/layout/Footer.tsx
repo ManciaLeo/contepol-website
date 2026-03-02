@@ -41,7 +41,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-teal-600 dark:text-teal-500" />
-                <span>contato@contepol.com.br</span>
+                <span>comercial@contepol.com.br</span>
               </li>
               <li className="flex items-center gap-3">
                 <MapPin className="w-4 h-4 text-teal-600 dark:text-teal-500" />
