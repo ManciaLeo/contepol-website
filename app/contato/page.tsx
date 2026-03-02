@@ -4,7 +4,7 @@ import { Reveal } from "@/components/animations/Reveal";
 import { Mail, Phone, MapPin, Send, Navigation } from "lucide-react";
 
 export default function Contato() {
-  const numeroWhatsApp = "5598988724676"; 
+  const numeroWhatsApp = "5598992351516"; 
   const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=Olá! Gostaria de um orçamento para peças técnicas.`;
   
   // LINK OFICIAL E ESTÁVEL DO GOOGLE MAPS PARA A CONTEPOL EM SÃO LUÍS
