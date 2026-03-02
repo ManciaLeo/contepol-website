@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Contepol | Indústria de Pré-Moldados de Concreto",
+  title: "Contepol | Indústria de Pré-Moldados",
   description: "Soluções em pré-moldados de concreto para infraestrutura, saneamento e redes elétricas. Postes, tubos, cruzetas e estruturas de alta performance no Maranhão.",
 };
 
