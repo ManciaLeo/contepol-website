@@ -16,7 +16,7 @@ export const Footer = () => {
               <img src="/logo_contepol_.svg" alt="Contepol Logo" className="w-full h-full object-contain" />
             </div>
             <p className="leading-relaxed max-w-xs">
-              Soluções avançadas em poliuretano para alta performance industrial. Durabilidade e engenharia de precisão.
+              Soluções avançadas em concreto para alta performance industrial. Durabilidade e engenharia de precisão.
             </p>
           </div>
 
@@ -26,7 +26,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li><Link href="/" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Início</Link></li>
               <li><Link href="/produtos" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Produtos</Link></li>
-              <li><Link href="#empresa" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">A Empresa</Link></li>
+              <li><Link href="/empresa" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">A Empresa</Link></li>
               <li><Link href="/contato" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Contato</Link></li>
             </ul>
           </div>
