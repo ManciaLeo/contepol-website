@@ -8,8 +8,8 @@ import { ThemeProvider } from "@/components/theme/ThemeProvider";
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  title: "Contepol | Tecnologia em Poliuretano",
-  description: "Soluções industriais de alta performance e durabilidade. Peças técnicas e revestimentos em poliuretano.",
+  title: "Contepol | Indústria de Pré-Moldados de Concreto",
+  description: "Soluções em pré-moldados de concreto para infraestrutura, saneamento e redes elétricas. Postes, tubos, cruzetas e estruturas de alta performance no Maranhão.",
 };
 
 export default function RootLayout({
