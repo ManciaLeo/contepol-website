@@ -48,57 +48,29 @@ export const Header = () => {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-3 items-center h-20 md:h-24">
             
-            <Link href="/" className="relative flex items-center justify-center group p-2">
-  
-  <Link href="/" className="relative flex items-center justify-center p-2 group">
-  
-  {/* Estilo embutido limpo: só aplica a luz NO CONTORNO da imagem, sem caixas soltas */}
-  <style dangerouslySetInnerHTML={{__html: `
-    @keyframes neon-glow {
-      0% { filter: drop-shadow(0 0 2px rgba(241, 90, 36, 0.5)); }
-      100% { filter: drop-shadow(0 0 10px rgba(241, 90, 36, 0.9)) drop-shadow(0 0 20px rgba(241, 90, 36, 0.6)); }
-    }
-    .neon-svg {
-      animation: neon-glow 1.5s infinite alternate ease-in-out;
-      transition: all 0.3s ease;
-    }
-    .neon-svg:hover {
-      animation: none;
-      filter: drop-shadow(0 0 15px rgba(241, 90, 36, 1)) drop-shadow(0 0 30px rgba(241, 90, 36, 0.8)) brightness(1.1);
-      transform: scale(1.05);
-    }
-  `}} />
-
-  <Link href="/" className="relative flex items-center justify-center p-2 group">
-  
-  <style dangerouslySetInnerHTML={{__html: `
-    @keyframes neon-glow {
-      0% { filter: drop-shadow(0 0 2px rgba(241, 90, 36, 0.5)); }
-      100% { filter: drop-shadow(0 0 10px rgba(241, 90, 36, 0.9)) drop-shadow(0 0 20px rgba(241, 90, 36, 0.6)); }
-    }
-    .neon-svg {
-      animation: neon-glow 1.5s infinite alternate ease-in-out;
-      transition: all 0.3s ease;
-    }
-    .neon-svg:hover {
-      animation: none;
-      filter: drop-shadow(0 0 15px rgba(241, 90, 36, 1)) drop-shadow(0 0 30px rgba(241, 90, 36, 0.8)) brightness(1.1);
-      transform: scale(1.05);
-    }
-  `}} />
-
-  <img 
-    src="/logo_contepol_.svg" 
-    alt="Contepol Logo" 
-    /* 👇 AQUI ESTÁ A MUDANÇA: de h-10 para h-14 md:h-16 👇 */
-    className="h-14 md:h-20 w-auto object-contain neon-svg relative z-10" 
-  />
-
-</Link>
-
-</Link>
-
-</Link>
+            {/* LOGO LIMPA E CORRIGIDA (Sem Links Duplicados - Adeus Erro #418) */}
+            <Link href="/" aria-label="Página Inicial" className="relative flex items-center justify-start p-2 group">
+              <style dangerouslySetInnerHTML={{__html: `
+                @keyframes neon-glow {
+                  0% { filter: drop-shadow(0 0 2px rgba(241, 90, 36, 0.5)); }
+                  100% { filter: drop-shadow(0 0 10px rgba(241, 90, 36, 0.9)) drop-shadow(0 0 20px rgba(241, 90, 36, 0.6)); }
+                }
+                .neon-svg {
+                  animation: neon-glow 1.5s infinite alternate ease-in-out;
+                  transition: all 0.3s ease;
+                }
+                .neon-svg:hover {
+                  animation: none;
+                  filter: drop-shadow(0 0 15px rgba(241, 90, 36, 1)) drop-shadow(0 0 30px rgba(241, 90, 36, 0.8)) brightness(1.1);
+                  transform: scale(1.05);
+                }
+              `}} />
+              <img 
+                src="/logo_contepol_.svg" 
+                alt="Contepol Logo" 
+                className="h-14 md:h-20 w-auto object-contain neon-svg relative z-10" 
+              />
+            </Link>
 
             {/* MENU DESKTOP CENTRALIZADO */}
             <nav className="hidden md:flex justify-center items-center space-x-10">
@@ -112,14 +84,16 @@ export const Header = () => {
             {/* BOTÕES DIREITA */}
             <div className="flex justify-end items-center gap-4">
               {mounted && (
-                <button onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2 text-slate-500">
+                <button aria-label="Alternar tema claro e escuro" onClick={() => setTheme(theme === "dark" ? "light" : "dark")} className="p-2 text-slate-500">
                   {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
                 </button>
               )}
               <a href={linkWhatsApp} target="_blank" className="hidden md:flex items-center gap-2 px-6 py-3 text-sm font-bold text-white bg-[#25D366] rounded-full hover:bg-[#128C7E]">
                 <MessageCircle className="w-4 h-4" /> Solicitar Orçamento
               </a>
-              <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-slate-900 dark:text-white p-2">
+              
+              {/* BOTÃO DO MENU MOBILE COM ARIA-LABEL */}
+              <button aria-label="Abrir menu de navegação" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="md:hidden text-slate-900 dark:text-white p-2">
                 {isMobileMenuOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
               </button>
             </div>
@@ -127,7 +101,7 @@ export const Header = () => {
         </div>
       </motion.header>
 
-      {/* MENU MOBILE CORRIGIDO (FULL VISIBILITY) */}
+      {/* MENU MOBILE CORRIGIDO */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 
@@ -138,7 +112,7 @@ export const Header = () => {
           >
             <div className="flex justify-between items-center mb-12">
                <Image src="/logo_contepol_.svg" alt="Logo" width={120} height={40} className="dark:bg-white/90 dark:p-1 dark:rounded-lg" />
-               <button onClick={() => setIsMobileMenuOpen(false)} className="text-slate-900 dark:text-white">
+               <button aria-label="Fechar menu de navegação" onClick={() => setIsMobileMenuOpen(false)} className="text-slate-900 dark:text-white p-2">
                  <X className="h-10 w-10" />
                </button>
             </div>
@@ -168,6 +142,7 @@ export const Header = () => {
           <motion.a
             initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
             href={linkWhatsApp} target="_blank"
+            aria-label="Falar conosco pelo WhatsApp"
             className="fixed bottom-6 right-6 z-[90] bg-[#25D366] text-white p-4 rounded-full shadow-2xl border-4 border-white dark:border-slate-900"
           >
             <MessageCircle className="w-8 h-8" />
