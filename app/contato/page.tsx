@@ -43,7 +43,7 @@ export default function Contato() {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">WhatsApp Comercial</p>
-                      <p className="text-xl font-semibold text-slate-700 dark:text-slate-200">(98) 98872-4676</p>
+                      <p className="text-xl font-semibold text-slate-700 dark:text-slate-200">(98) 99235-1516</p>
                     </div>
                   </div>
                   
