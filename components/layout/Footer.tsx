@@ -22,7 +22,8 @@ export const Footer = () => {
 
           {/* COLUNA 2: NAVEGAÇÃO */}
           <div className="space-y-6">
-            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Navegação</h4>
+            {/* CORRIGIDO PARA H3 PARA ACESSIBILIDADE */}
+            <h3 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Navegação</h3>
             <ul className="space-y-4">
               <li><Link href="/" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Início</Link></li>
               <li><Link href="/produtos" className="hover:text-[#F15A24] dark:hover:text-white transition-colors">Produtos</Link></li>
@@ -33,7 +34,8 @@ export const Footer = () => {
 
           {/* COLUNA 3: CONTATO */}
           <div className="space-y-6">
-            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Contato</h4>
+            {/* CORRIGIDO PARA H3 PARA ACESSIBILIDADE */}
+            <h3 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Contato</h3>
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-teal-600 dark:text-teal-500" />
@@ -52,24 +54,27 @@ export const Footer = () => {
 
           {/* COLUNA 4: REDES SOCIAIS */}
           <div className="space-y-6">
-            <h4 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Redes Sociais</h4>
+            {/* CORRIGIDO PARA H3 PARA ACESSIBILIDADE */}
+            <h3 className="text-slate-900 dark:text-white font-bold uppercase tracking-wider text-xs">Redes Sociais</h3>
             <div className="flex gap-4">
               
-              {/* Botão LinkedIn */}
+              {/* Botão LinkedIn COM ARIA-LABEL */}
               <a 
                 href="https://www.linkedin.com/company/contepol" 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                aria-label="Página da Contepol no LinkedIn"
                 className="relative z-50 p-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:border-[#F15A24] dark:hover:bg-[#F15A24] hover:text-white dark:hover:text-white transition-all shadow-sm"
               >
                 <Linkedin className="w-5 h-5" />
               </a>
 
-              {/* Botão Instagram */}
+              {/* Botão Instagram COM ARIA-LABEL */}
               <a 
                 href="https://www.instagram.com/contepol.oficial/" 
                 target="_blank" 
-                rel="noopener noreferrer" 
+                rel="noopener noreferrer"
+                aria-label="Página da Contepol no Instagram" 
                 className="relative z-50 p-2 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-400 hover:bg-[#F15A24] hover:border-[#F15A24] dark:hover:bg-[#F15A24] hover:text-white dark:hover:text-white transition-all shadow-sm"
               >
                 <Instagram className="w-5 h-5" />
