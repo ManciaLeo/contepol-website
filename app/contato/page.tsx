@@ -62,40 +62,42 @@ export default function Contato() {
 
             {/* Box do Mapa */}
             <Reveal delay={0.3} className="flex-1 flex flex-col">
-              <div className="relative h-full min-h-[300px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col items-center justify-center p-8 text-center">
-                <div className="w-20 h-20 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6 relative">
-                  <MapPin className="w-10 h-10 text-[#F15A24] z-10 animate-bounce" />
-                  <div className="absolute inset-0 bg-[#F15A24]/20 rounded-full animate-ping opacity-30" />
+              <div className="relative h-full min-h-[300px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col items-center justify-between p-8 md:p-10 text-center">
+                
+                <div className="flex flex-col items-center">
+                  <div className="w-20 h-20 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6 relative">
+                    <MapPin className="w-10 h-10 text-[#F15A24] z-10 animate-bounce" />
+                    <div className="absolute inset-0 bg-[#F15A24]/20 rounded-full animate-ping opacity-30" />
+                  </div>
+                  <h4 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Fábrica São Luís</h4>
+                  <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-[320px] font-medium leading-relaxed">
+                    Rua Doze, nº 02, Mod 01, Distrito Industrial<br/>
+                    São Luís - MA | CEP: 65090-260
+                  </p>
                 </div>
-                <h4 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Fábrica São Luís</h4>
-                <p className="text-slate-600 dark:text-slate-400 mb-8 max-w-[320px] font-medium leading-relaxed">
-                  Rua Doze, nº 02, Mod 01, Distrito Industrial<br/>
-                  São Luís - MA | CEP: 65090-260
-                </p>
                 
                 <a 
                   href={linkMapsOficial} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="bg-[#F15A24] text-white px-10 py-5 rounded-2xl font-bold shadow-lg hover:bg-orange-600 transition-all transform hover:scale-105 active:scale-95 flex items-center gap-3"
+                  className="w-full bg-[#F15A24] text-white py-5 rounded-2xl font-bold text-xl shadow-lg hover:bg-orange-600 transition-all transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 mt-auto"
                 >
                   <Navigation className="w-5 h-5" /> Traçar Rota via Google Maps
                 </a>
+
               </div>
             </Reveal>
           </div>
 
           {/* LADO DIREITO: FORMULÁRIO */}
           <Reveal delay={0.4} className="h-full">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-12 shadow-2xl h-full flex flex-col">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-[2.5rem] p-8 md:p-10 shadow-2xl h-full flex flex-col">
               <div className="mb-10">
                 <h3 className="text-3xl font-bold text-slate-900 dark:text-white mb-2">Solicite um Orçamento</h3>
                 <p className="text-slate-500 dark:text-slate-400">Preencha os dados abaixo para darmos início ao seu projeto.</p>
               </div>
 
-              {/* ========================================= */}
               {/* 📱 VERSÃO MOBILE (Esconde campos no celular) */}
-              {/* ========================================= */}
               <div className="block md:hidden flex-1 flex flex-col justify-center py-4">
                 <p className="text-slate-600 dark:text-slate-400 mb-8 text-center leading-relaxed">
                   Para um atendimento mais rápido, clique no botão abaixo para nos enviar um e-mail direto do seu celular com o seu pedido.
@@ -108,9 +110,7 @@ export default function Contato() {
                 </a>
               </div>
 
-              {/* ========================================= */}
               {/* 💻 VERSÃO WEB/DESKTOP (Formulário completo) */}
-              {/* ========================================= */}
               <div className="hidden md:block flex-1">
                 <form action="https://formsubmit.co/comercial@contepol.com.br" method="POST" className="space-y-6 flex flex-col h-full">
                   
@@ -141,7 +141,7 @@ export default function Contato() {
                   
                   <button 
                     type="submit" 
-                    className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 mt-4"
+                    className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 mt-auto"
                   >
                     <Send className="w-5 h-5" /> Enviar Mensagem Técnica
                   </button>
