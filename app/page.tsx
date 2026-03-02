@@ -104,7 +104,7 @@ export default function Home() {
             
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center md:text-left">
-                <p className="text-3xl font-bold text-[#00A884]">+10</p>
+                <p className="text-3xl font-bold text-[#00A884]">+20</p>
                 <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Anos de Mercado</p>
               </div>
               <div className="text-center md:text-left">
