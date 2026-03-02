@@ -86,7 +86,7 @@ export const Footer = () => {
             © {new Date().getFullYear()} Contepol Tecnologia em Concreto. Todos os direitos reservados.
           </p>
           <p>
-            Desenvolvido por <span className="font-semibold text-slate-900 dark:text-white">meup4i</span>
+            Desenvolvido por <span className="font-semibold text-slate-900 dark:text-white">LeoMancia</span>
           </p>
         </div>
       </div>
