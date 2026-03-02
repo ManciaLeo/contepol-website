@@ -4,7 +4,7 @@ import { Reveal } from "@/components/animations/Reveal";
 import { Mail, Phone, MapPin, Send, Navigation } from "lucide-react";
 
 export default function Contato() {
-  const numeroWhatsApp = "5598992351516"; 
+  const numeroWhatsApp = "5598988724676"; 
   const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=Olá! Gostaria de um orçamento para peças técnicas.`;
   
   // LINK OFICIAL E ESTÁVEL DO GOOGLE MAPS PARA A CONTEPOL EM SÃO LUÍS
@@ -20,7 +20,7 @@ export default function Contato() {
             Fale com a <span className="text-[#F15A24]">Contepol</span>
           </h1>
           <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto font-medium">
-            Sede e Fábrica em São Luís, Maranhão. Tecnologia e precisão em poliuretano para todo o Brasil.
+            Sede e Fábrica em São Luís, Maranhão. Tecnologia e precisão em Concreto.
           </p>
         </Reveal>
 
@@ -43,7 +43,7 @@ export default function Contato() {
                     </div>
                     <div>
                       <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">WhatsApp Comercial</p>
-                      <p className="text-xl font-semibold text-slate-700 dark:text-slate-200">(98) 99235-1516</p>
+                      <p className="text-xl font-semibold text-slate-700 dark:text-slate-200">(98) 98872-4676</p>
                     </div>
                   </div>
                   

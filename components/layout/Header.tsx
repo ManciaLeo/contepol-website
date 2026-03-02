@@ -34,7 +34,7 @@ export const Header = () => {
     { name: "Contato", href: "/contato" },
   ];
 
-  const numeroWhatsApp = "5511999999999"; 
+  const numeroWhatsApp = "5598988724676"; 
   const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=Olá! Gostaria de um orçamento.`;
 
   return (

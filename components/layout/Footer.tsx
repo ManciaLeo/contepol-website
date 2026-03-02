@@ -37,7 +37,7 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-teal-600 dark:text-teal-500" />
-                <span>(98) 99999-9999</span>
+                <span>(98) 98872-4676</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-teal-600 dark:text-teal-500" />
