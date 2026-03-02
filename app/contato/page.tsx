@@ -60,7 +60,7 @@ export default function Contato() {
               </div>
             </Reveal>
 
-            {/* Box do Mapa (Placeholder Visual) */}
+            {/* Box do Mapa */}
             <Reveal delay={0.3} className="flex-1 flex flex-col">
               <div className="relative h-full min-h-[300px] rounded-[2.5rem] overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm flex flex-col items-center justify-center p-8 text-center">
                 <div className="w-20 h-20 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mb-6 relative">
@@ -73,8 +73,6 @@ export default function Contato() {
                   São Luís - MA | CEP: 65090-260
                 </p>
                 
-                {/* BOTÃO COM O LINK CORRIGIDO */}
-
                 <a 
                   href={linkMapsOficial} 
                   target="_blank" 
@@ -95,66 +93,62 @@ export default function Contato() {
                 <p className="text-slate-500 dark:text-slate-400">Preencha os dados abaixo para darmos início ao seu projeto.</p>
               </div>
 
-              <form className="space-y-6 flex-1 flex flex-col">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Seu Nome</label>
-                    <input type="text" className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="Ex: João Silva" />
+              {/* ========================================= */}
+              {/* 📱 VERSÃO MOBILE (Esconde campos no celular) */}
+              {/* ========================================= */}
+              <div className="block md:hidden flex-1 flex flex-col justify-center py-4">
+                <p className="text-slate-600 dark:text-slate-400 mb-8 text-center leading-relaxed">
+                  Para um atendimento mais rápido, clique no botão abaixo para nos enviar um e-mail direto do seu celular com o seu pedido.
+                </p>
+                <a 
+                  href="mailto:comercial@contepol.com.br?subject=Orçamento Técnico via Site - Contepol"
+                  className="w-full py-5 mt-auto bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform active:translate-y-0 flex items-center justify-center gap-3 no-underline"
+                >
+                  <Send className="w-5 h-5" /> Abrir meu E-mail
+                </a>
+              </div>
+
+              {/* ========================================= */}
+              {/* 💻 VERSÃO WEB/DESKTOP (Formulário completo) */}
+              {/* ========================================= */}
+              <div className="hidden md:block flex-1">
+                <form action="https://formsubmit.co/comercial@contepol.com.br" method="POST" className="space-y-6 flex flex-col h-full">
+                  
+                  {/* Configurações invisíveis do FormSubmit */}
+                  <input type="hidden" name="_subject" value="Novo Pedido de Orçamento pelo Site - Contepol" />
+                  <input type="hidden" name="_captcha" value="false" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Seu Nome</label>
+                      <input type="text" name="Nome" required className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="Ex: João Silva" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Empresa</label>
+                      <input type="text" name="Empresa" className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="Nome da empresa" />
+                    </div>
                   </div>
+
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Empresa</label>
-                    <input type="text" className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="Nome da empresa" />
+                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">E-mail Corporativo</label>
+                    <input type="email" name="Email" required className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="contato@empresa.com.br" />
                   </div>
-                </div>
 
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">E-mail Corporativo</label>
-                  <input type="email" className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200" placeholder="contato@empresa.com.br" />
-                </div>
+                  <div className="space-y-2 flex-1 flex flex-col">
+                    <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Descrição do Pedido Técnico</label>
+                    <textarea name="Mensagem" required className="w-full flex-1 min-h-[150px] bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200 resize-none" placeholder="Informe as especificações da peça ou projeto..."></textarea>
+                  </div>
+                  
+                  <button 
+                    type="submit" 
+                    className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3 mt-4"
+                  >
+                    <Send className="w-5 h-5" /> Enviar Mensagem Técnica
+                  </button>
 
-                <div className="space-y-2 flex-1 flex flex-col">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Descrição do Pedido Técnico</label>
-                  <textarea className="w-full flex-1 min-h-[150px] bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-5 py-4 focus:border-[#F15A24] outline-none transition-all text-slate-800 dark:text-slate-200 resize-none" placeholder="Informe as especificações da peça ou projeto..."></textarea>
-                </div>
-                
-                <>
-  {/* 📱 VERSÃO MOBILE (Ecrãs pequenos): Usa a Opção 2 (Abre a App de E-mail) */}
-  {/* A classe 'block md:hidden' faz com que isto só apareça no telemóvel */}
-  <div className="block md:hidden">
-    <a 
-      href="mailto:comercial@contepol.com.br?subject=Contacto Técnico via Site - Contepol"
-      className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform active:translate-y-0 flex items-center justify-center gap-3 no-underline"
-    >
-      <Send className="w-5 h-5" /> Enviar Mensagem Técnica
-    </a>
-  </div>
+                </form>
+              </div>
 
-  {/* 💻 VERSÃO WEB/DESKTOP (Ecrãs grandes): Usa a Opção 1 (Formulário no site) */}
-  {/* A classe 'hidden md:block' faz com que isto só apareça no computador e tablets maiores */}
-  <div className="hidden md:block">
-    <form action="https://formsubmit.co/comercial@contepol.com.br" method="POST" className="space-y-4">
-      
-      {/* Exemplo de campos (Podes adicionar os teus aqui!) */}
-      {/* <input type="text" name="nome" placeholder="O seu Nome" className="..." required /> */}
-      {/* <input type="email" name="email" placeholder="O seu E-mail" className="..." required /> */}
-      {/* <textarea name="mensagem" placeholder="A sua Mensagem" className="..." required></textarea> */}
-
-      {/* Configurações invisíveis do FormSubmit para ficar mais profissional */}
-      <input type="hidden" name="_subject" value="Novo Contacto pelo Site - Contepol" />
-      <input type="hidden" name="_captcha" value="false" />
-      
-      {/* Botão de Enviar do Formulário */}
-      <button 
-        type="submit" 
-        className="w-full py-5 bg-[#F15A24] text-white font-bold text-xl rounded-2xl hover:bg-orange-600 transition-all shadow-lg transform hover:-translate-y-1 active:translate-y-0 flex items-center justify-center gap-3"
-      >
-        <Send className="w-5 h-5" /> Enviar Mensagem Técnica
-      </button>
-
-    </form>
-  </div>
-</>
-              </form>
             </div>
           </Reveal>
 
