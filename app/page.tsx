@@ -46,7 +46,7 @@ export default function Home() {
           <Reveal delay={0.4}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/produtos" className="px-8 py-4 bg-[#F15A24] text-white font-bold rounded-xl hover:bg-orange-600 transition-all flex items-center justify-center gap-2 shadow-lg shadow-orange-500/20">
-                Ver Catálogo
+                Ver Portfólio
               </Link>
               <a 
   href="https://wa.me/5598992351516?text=Olá,%20estou%20no%20site%20da%20Contepol%20e%20gostaria%20de%20falar%20com%20o%20setor%20comercial!" 
