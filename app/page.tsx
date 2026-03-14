@@ -136,10 +136,16 @@ export default function Home() {
             </div>
           </div>
           <Reveal delay={0.4}>
-            <div className="bg-slate-100 dark:bg-slate-900 rounded-3xl aspect-video flex items-center justify-center border border-slate-200 dark:border-slate-800 text-slate-400 shadow-inner transition-colors">
-              <p className="font-medium italic">Espaço reservado para foto da fábrica/equipe</p>
-            </div>
-          </Reveal>
+  <div className="relative rounded-3xl aspect-video overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner group">
+    <Image 
+      src="/foto-capa.jpeg" 
+      alt="Equipe e Fábrica da Contepol" 
+      fill
+      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+      sizes="(max-width: 768px) 100vw, 50vw"
+    />
+  </div>
+</Reveal>
         </div>
       </section>
 
