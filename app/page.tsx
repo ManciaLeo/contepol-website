@@ -27,7 +27,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0 opacity-10 dark:opacity-5 transition-opacity">
           {/* IMPLEMENTADO <Image> DO NEXT.JS COM PRIORITY (FCP e LCP mais rápidos) */}
           <Image 
-            src="/fundo-contenpo-2.png" 
+            src="/fundo-contepol-2.png" 
             alt="Fábrica da Contepol" 
             fill
             priority
