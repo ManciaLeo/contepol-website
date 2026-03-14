@@ -24,8 +24,8 @@ export default function Home() {
       
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-[85vh] flex items-center justify-center pt-20 overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-10 dark:opacity-5 transition-opacity">
-          {/* IMPLEMENTADO <Image> DO NEXT.JS COM PRIORITY (FCP e LCP mais rápidos) */}
+        {/* 👇 AQUI: Opacidade aumentada (opacity-30) para a foto aparecer mais! */}
+        <div className="absolute inset-0 z-0 opacity-30 dark:opacity-20 transition-opacity">
           <Image 
             src="/fundo-contepol-2.png" 
             alt="Fábrica da Contepol" 
@@ -71,7 +71,6 @@ export default function Home() {
       {/* --- LETREIRO DE LOGOS --- */}
       <section className="py-16 bg-white dark:bg-slate-900/50 border-y border-slate-100 dark:border-slate-800 relative transition-colors">
         <div className="container mx-auto px-6 mb-10">
-          {/* CONTRASTE CORRIGIDO PARA text-slate-500 */}
           <p className="text-center text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.4em]">
             ENGENHARIA DE CONFIANÇA APROVADA POR GRANDES INDÚSTRIAS
           </p>
@@ -86,18 +85,25 @@ export default function Home() {
             animate={{ x: ["0%", "-50%"] }}
             transition={{ repeat: Infinity, ease: "linear", duration: 30 }}
           >
-            {/* CÓDIGO DO MAP CORRIGIDO E USANDO <Image> */}
-            {[...parceiros, ...parceiros].map((parceiro, index) => (
-              <div key={index} className="relative h-12 md:h-16 w-32 md:w-48 flex-shrink-0">
-                <Image 
-                  src={parceiro.icone} 
-                  alt={`Logo ${parceiro.nome}`} 
-                  fill
-                  className="object-contain drop-shadow-sm dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)] hover:drop-shadow-md hover:scale-110 transition-all duration-300 cursor-pointer" 
-                  sizes="(max-width: 768px) 128px, 192px"
-                />
-              </div>
-            ))}
+            {[...parceiros, ...parceiros].map((parceiro, index) => {
+              // 👇 AQUI: Condição para aplicar sombra forte apenas na logo da Lucena
+              const isLucena = parceiro.nome === "Lucena";
+              const shadowClass = isLucena 
+                ? "drop-shadow-[0_4px_6px_rgba(0,0,0,0.3)] dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]" 
+                : "drop-shadow-sm dark:drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]";
+
+              return (
+                <div key={index} className="relative h-12 md:h-16 w-32 md:w-48 flex-shrink-0">
+                  <Image 
+                    src={parceiro.icone} 
+                    alt={`Logo ${parceiro.nome}`} 
+                    fill
+                    className={`object-contain ${shadowClass} hover:drop-shadow-md hover:scale-110 transition-all duration-300 cursor-pointer`}
+                    sizes="(max-width: 768px) 128px, 192px"
+                  />
+                </div>
+              );
+            })}
           </motion.div>
         </div>
       </section>
@@ -120,32 +126,31 @@ export default function Home() {
             <div className="grid grid-cols-3 gap-8">
               <div className="text-center md:text-left">
                 <p className="text-3xl font-bold text-[#00A884]">+20</p>
-                {/* CONTRASTE CORRIGIDO PARA text-slate-500 */}
                 <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Anos de Mercado</p>
               </div>
               <div className="text-center md:text-left">
                 <p className="text-3xl font-bold text-[#00A884]">+500</p>
-                {/* CONTRASTE CORRIGIDO PARA text-slate-500 */}
                 <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Projetos Entregues</p>
               </div>
               <div className="text-center md:text-left">
                 <p className="text-3xl font-bold text-[#00A884]">100%</p>
-                {/* CONTRASTE CORRIGIDO PARA text-slate-500 */}
                 <p className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">Nacional</p>
               </div>
             </div>
           </div>
+          
+          {/* 👇 FOTO DA CAPA COM ZOOM EFEITO HOVER MANTIDA AQUI! */}
           <Reveal delay={0.4}>
-  <div className="relative rounded-3xl aspect-video overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner group">
-    <Image 
-      src="/foto-capa.jpeg" 
-      alt="Equipe e Fábrica da Contepol" 
-      fill
-      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
-      sizes="(max-width: 768px) 100vw, 50vw"
-    />
-  </div>
-</Reveal>
+            <div className="relative rounded-3xl aspect-video overflow-hidden border border-slate-200 dark:border-slate-800 shadow-inner group">
+              <Image 
+                src="/foto-capa.jpeg" 
+                alt="Equipe e Fábrica da Contepol" 
+                fill
+                className="object-cover group-hover:scale-105 transition-transform duration-700 ease-in-out"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          </Reveal>
         </div>
       </section>
 
